@@ -1,6 +1,9 @@
 package calculator;
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
     /* Основной CalculatorFabrika (запускаемый) класс программы должен создать экземпляр класса
@@ -16,10 +19,12 @@ import java.util.Scanner;
             //  Создаем экземпляр класса Calculator 
             //  с агрументом в виде объекта MyOpFactory
             //  СОЗДАЕТ КАЛЬКУЛЯТОР
-            CalculatorRIM calc = new CalculatorRIM(myOpFactory);
-            //  Выполняем метод exec для объекта Calculator
+            int arg1=1;
+            int arg2=1;
+            Calculator calc = new Calculator(myOpFactory);
+            //  Выполняем метод exec для объекта CalculatorRIM
             //  ЗАПУСКАЕМ КАЛЬКУЛЯТОР
-            calc.exec();
+            calc.exec(arg1, arg2);
         }
     }
     /*
@@ -72,7 +77,6 @@ import java.util.Scanner;
         }
     }
     
-
 /*
      Если передан некорректный код операции, метод getOpInstance возвращает null.
    
@@ -121,39 +125,39 @@ import java.util.Scanner;
         }
     }
     
-     class CalculatorRIM {
-
-        MyOpFactory myOpFactory;
-        private char ch1;
-        private char ch2;
-        private char ch3;
-        private char ch4;
-        private char ch5;
-        private char ch6;
-        private char ch7;
-        private char ch8;
-        private char ch9;
-        public int op;
-
-    /**
-     *
-     */
+     class Calculator {
+    private final MyOpFactory myOpFactory;
+    private char ch1;
+    private char ch2;
+    private char ch3;
+    private char ch4;
+    private char ch5;
+    private char ch6;
+    private char ch7;
+    private char ch8;
+    private char ch9;
+    private int op;
     public int operation;
+
+       
        
 
-        public CalculatorRIM(MyOpFactory myOpFactory) {
+        public Calculator(MyOpFactory myOpFactory) {
             this.myOpFactory = myOpFactory;
         }
 
         //  Обеспечивает цикл ввода аргументов и вида операции 
         //  и вывод результата операции
-        public void exec(char char1) {
-            int arg1 = 0;
-            int arg2 = 0;
+        public void exec(int arg1, int arg2) {
             int first = 0;
             int second = 0;
             boolean nextStep = true;                //  Условие выхода из цикла 
             System.out.println("Введите арифметическую операцию");
+        try {
+            TimeUnit.SECONDS.sleep(10);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Calculator.class.getName()).log(Level.SEVERE, null, ex);
+        }
             Scanner in = new Scanner(System.in);    //  Объявление потока ввода
             do {
                
@@ -932,7 +936,8 @@ import java.util.Scanner;
            
     }
 }
-                        
+            
+            
             if (first == 2 && second == 2){
             Operation op;
                     op = myOpFactory.getOpInstance(operation);
@@ -940,11 +945,13 @@ import java.util.Scanner;
             System.out.println(Math.round(operation));}
 
             else  if (first == 1 && second==1 && op!=1){         // Переводим результат в римские числа 
-            Operation op = myOpFactory.getOpInstance(operation);
+            Operation op;
+                    op = myOpFactory.getOpInstance(operation);
             System.out.println(Convert.operation);}
           
             else  if (first == 1 && second==1 && op==1 && arg1>arg2){// Переводим результат в римские числа разность более  0
-            Operation op = myOpFactory.getOpInstance(operation);
+            Operation op;
+                    op = myOpFactory.getOpInstance(operation);
             System.out.println(Convert.operation);}
 
             else  if (first == 1 && second==1 && op==1 && arg1<arg2){// Переводим результат в римские числа разность менее 0
