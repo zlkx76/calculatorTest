@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
     /* Основной CalculatorFabrika (запускаемый) класс программы должен создать экземпляр класса
      MyOpFactory, создать экземпляр класса Calculator, передав ему в качестве 
      параметра объект MyOpFactory и выполнить метод exec созданного объекта
@@ -81,7 +80,7 @@ import java.util.logging.Logger;
 /*
      Если передан некорректный код операции, метод getOpInstance возвращает null.
    
-     Создайте реализацию интерфейса OperationFactory, создающую перечисленные выше
+     Создаём реализацию интерфейса OperationFactory, создающую перечисленные выше
      объекты (MyOpFactory). 
      */
 
@@ -107,7 +106,7 @@ import java.util.logging.Logger;
                     break;
                 }
                 case 1: {
-                    operation = new OpMinus();
+                    operation = new   OpMinus();
                     break;
                 }
                 case 2: {
@@ -155,14 +154,13 @@ import java.util.logging.Logger;
             boolean nextStep = true;                //  Условие выхода из цикла 
             
         try {
-            TimeUnit.SECONDS.sleep(10);
+            TimeUnit.SECONDS.sleep(8);
         } catch (InterruptedException ex) {
             Logger.getLogger(Calculator.class.getName()).log(Level.SEVERE, null, ex);
         }
             Scanner in = new Scanner(System.in);  
             System.out.println("Введите арифметическую выражение");
-            String phrase1 = in.nextLine();
-		
+          		
             ch1 = in.next().charAt(0);
              ch2 = in.next().charAt(1);
              ch3 = in.next().charAt(2);
@@ -172,11 +170,11 @@ import java.util.logging.Logger;
              ch7 = in.next().charAt(6);
              ch8 = in.next().charAt(7);
              ch9 = in.next().charAt(8);
-            
+             ch10 = in.next().charAt(9);
+             
             do {
                
-               
-                            
+                                          
               if ((ch1 == 'I') && (ch2 != 'I') && (ch2 != 'V') && (ch2 != 'X'))// определяеи 1число и тип РИМ или АРАБ
             {
                 arg1 = 1;
@@ -205,14 +203,12 @@ import java.util.logging.Logger;
             }
             else if (ch1 == 'V' && ch2 == 'I' && ch3 == 'I' && ch4 != 'I')
               
-            
             {
                 arg1 = 7;
                 first = 1;
             }
             else if(ch1 == 'V' && ch2 == 'I' && ch3 == 'I' && ch4 == 'I')
-              
-            
+                       
             {
                 arg1 = 8;
                 first = 1;
@@ -769,7 +765,7 @@ import java.util.logging.Logger;
             
             
         {
-            arg2 = 5;
+            arg2 = 4;
             second = 1;
         }
         else if (ch6 == 'V' && ch7 != 'I' && ch8 == ' ') 
@@ -937,7 +933,7 @@ import java.util.logging.Logger;
                  else if (ch2 == '/')
                  {operation=3;}}
                 else {System.out.println("Недопустимая операция");}
-                if (arg1 == 10 && first == 2 ){
+                if (arg1 == 10 && first == 2 ) {
                  if (ch2 == '+')
                  {operation=0;}
                  else if (ch2 == '-')
@@ -948,41 +944,41 @@ import java.util.logging.Logger;
                  {operation=3;}}
                 else {System.out.println("Недопустимая операция");}
         
-           
-    }
+               }
 }
             
-            
             if (first == 2 && second == 2){
-            Operation op;
-                  op = myOpFactory.getOpInstance(operation);
+            //Operation op;
+                  //op = myOpFactory.getOpInstance(operation);
             System.out.println(Math.round(myOpFactory.getOpInstance(operation).exec(arg1, arg2)));// Округляем результат до целого числа для арабских чисел
             }
 
-            else  if (first == 1 && second==1 && op!=1){         // Переводим результат в римские числа 
-            Operation op;
-                    op = myOpFactory.getOpInstance(operation);
-            System.out.println(Convert.operand);}
+            else  if (first == 1 && second==1 && operation!=1){         // Переводим результат в римские числа 
+            //Operation op;
+                   // op = myOpFactory.getOpInstance(operation);
+            System.out.println(operand.Convert(myOpFactory.getOpInstance(operation).exec(arg1, arg2)));}
           
-            else  if (first == 1 && second==1 && op==1 && arg1>arg2){// Переводим результат в римские числа разность более  0
-            Operation op;
-                    op = myOpFactory.getOpInstance(operation);
-            System.out.println(Convert.operand);}
+            else  if (first == 1 && second==1 && operation==1 && arg1>arg2){// Переводим результат в римские числа разность более  0
+            //Operation op;
+                    //op = myOpFactory.getOpInstance(operation);
+                Convert convert= new Convert();
+               
+            System.out.println(convert.operand(myOpFactory.getOpInstance(operation).exec(arg1, arg2))));}
 
-            else  if (first == 1 && second==1 && op==1 && arg1<arg2){// Переводим результат в римские числа разность менее 0
-            Operation op = myOpFactory.getOpInstance(operation);
-            System.out.println(" - " + Convert.operand);}
+            else  if (first == 1 && second==1 && operation==1 && arg1<arg2){// Переводим результат в римские числа разность менее 0
+            // Operation op = myOpFactory.getOpInstance(operation);
+            System.out.println(" - " + Convert(myOpFactory.getOpInstance(operation).exec(arg1, arg2)));}
             
-             else  if (first == 1 && second==1 && op==1 && arg1==arg2){// Переводим результат в римские числа разность 0
+             else  if (first == 1 && second==1 && operation==1 && arg1==arg2){// Переводим результат в римские числа разность 0
              System.out.println(" НОЛЬ  ");}// ноль у римлян отсутствовал
                
- 
-            }
+             }
             while (nextStep);
      }
 
-    
-    }
+   
+
+   }
        
 
     

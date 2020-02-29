@@ -3,12 +3,15 @@
 package calculator;
 
 class Convert {
+
+    
     int operand;
     //static boolean operation;
-	
 
-public String intToRome(int operand){
+    
+public String intToRome(){
 	String result="";
+                operand = Math.abs(operand);
 	while (operand>0){                // 100 есть максимальное из возможных чисел по условиям задания
 		if ((operand/100)>=1){
 			result=result+"C";
@@ -38,32 +41,38 @@ public String intToRome(int operand){
 				break;
 			case 6:
 				result=result+"VI";
-				operand=operand-6;
+				//operand=operand-6;
 				break;
 			case 5:
 				result=result+"V";
-				operand=operand-5;
+				//operand=operand-5;
 				break;
 			case 4:
 				result=result+"IV";
-				operand=operand-4;
+				//operand=operand-4;
 				break;
 			case 3:
 				result=result+"III";
-				operand=operand-3;
+				//operand=operand-3;
 				break;
 			case 2:
 				result=result+"II";
-				operand=operand-2;
+				//operand=operand-2;
 				break;
 			case 1:
 				result=result+"I";
-				operand=operand-1;
+				//operand=operand-1;
 				break;
 			}
 		}
 	}
 	return result;
 }
+
+  
+
+    
+
+   
 
 }
