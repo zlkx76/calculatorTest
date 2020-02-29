@@ -21,6 +21,7 @@ import java.util.logging.Logger;
             //  СОЗДАЕТ КАЛЬКУЛЯТОР
             int arg1=1;
             int arg2=1;
+            
             Calculator calc = new Calculator(myOpFactory);
             //  Выполняем метод exec для объекта CalculatorRIM
             //  ЗАПУСКАЕМ КАЛЬКУЛЯТОР
@@ -73,7 +74,7 @@ import java.util.logging.Logger;
 
         @Override
         public int exec(int arg1, int arg2) {
-            return (arg1 / arg2);
+            return Math.round(arg1 / arg2);
         }
     }
     
@@ -98,8 +99,8 @@ import java.util.logging.Logger;
         @Override
         //  Получает код операции, по которому
         //  создает соответствующий объект операции
-        public Operation getOpInstance(int op) {
-            this.operationCode = op;
+        public Operation getOpInstance(int opCode) {
+            this.operationCode = opCode;
             switch (operationCode) {
                 case 0: {
                     operation = new OpPlus();
@@ -136,6 +137,7 @@ import java.util.logging.Logger;
     private char ch7;
     private char ch8;
     private char ch9;
+    private char ch10;
     private int op;
     public int operation;
 
@@ -144,7 +146,7 @@ import java.util.logging.Logger;
         public Calculator(MyOpFactory myOpFactory) {
             this.myOpFactory = myOpFactory;
         }
-
+ 
         //  Обеспечивает цикл ввода аргументов и вида операции 
         //  и вывод результата операции
         public void exec(int arg1, int arg2) {
@@ -158,8 +160,8 @@ import java.util.logging.Logger;
             Logger.getLogger(Calculator.class.getName()).log(Level.SEVERE, null, ex);
         }
             Scanner in = new Scanner(System.in);  
-            System.out.println("Введите арифметическую операцию");
-            String phrase1 = sc.nextLine();
+            System.out.println("Введите арифметическую выражение");
+            String phrase1 = in.nextLine();
 		
             ch1 = in.next().charAt(0);
              ch2 = in.next().charAt(1);
@@ -297,13 +299,13 @@ import java.util.logging.Logger;
                       }
             
             
-            if (arg1 == 1 & arg1 == 5 & arg1 == 10 && first == 1) {
-                if (ch3 == 'I' & ch4 != 'I' & ch4 != 'V' & ch4 != 'X' & ch4 == ' ')// определяеи 2число и тип РИМ или АРАБ
+            if ((arg1 == 1 | arg1 == 5 | arg1 == 10) && first == 1) {
+                if (ch3 == 'I' && (ch4 != 'I' | ch4 != 'V' | ch4 != 'X' | ch4 == ' '))// определяеи 2число и тип РИМ или АРАБ
                 {
                     arg2 = 1;
                     second = 1;
                 } else if 
-                    (ch3 == 'I' && ch4 == 'I' && ch5 != 'I' && ch5 == ' ') 
+                    (ch3 == 'I' && ch4 == 'I' && ( ch5 != 'I' | ch5 == ' ')) 
                         
                 
                 {
@@ -323,28 +325,28 @@ import java.util.logging.Logger;
                     arg2 = 5;
                     second = 1;
                 }
-                else if (ch3 =='V' && ch4 != 'I' && ch4 == ' ') 
+                else if (ch3 =='V' && ch4 != 'I' && ch5 == ' ') 
             
             
                 {
                     arg2 = 5;
                     second = 1;
                 }
-                else if (ch3 == 'V' && ch4 == 'V' && ch5 != 'I' && ch5 == ' ') 
+                else if (ch3 == 'V' && ch4 == 'I' && (ch5 != 'I' | ch5 == ' ')) 
             
             
                 {
                     arg2 = 6;
                     second = 1;
                 }
-                else if (ch3 == 'V' && ch4 == 'V' && ch5 == 'I' && ch6 != 'I' && ch6 == ' ') 
+                else if (ch3 == 'V' && ch4 == 'I' && ch5 == 'I' && (ch6 != 'I' | ch6 == ' ')) 
             
             
                 {
                     arg2 = 7;
                     second = 1;
                 }
-                else if(ch3 == 'V' && ch4 == 'V' && ch5 == 'I' && ch6 != 'I' && ch6 == ' ') 
+                else if(ch3 == 'V' && ch4 == 'I' && ch5 == 'I' && (ch6 != 'I' | ch6 == ' ')) 
             
             
                 
@@ -359,7 +361,7 @@ import java.util.logging.Logger;
                     arg2 = 9;
                     second = 1;
                 }
-                else if (ch3 == 'X' && ch4 != 'I' && ch4 == ' ')
+                else if (ch3 == 'X' && (ch4 != 'I' | ch4 == ' '))
               
                            
                 {
@@ -443,21 +445,21 @@ import java.util.logging.Logger;
                       }
 
             }
-            if (arg1 == 2  & arg1 == 4 & arg1 == 6 & arg1 == 9 ) {
+            if (arg1 == 2  | arg1 == 4 | arg1 == 6 | arg1 == 9 ) {
 
                 if (ch4 == 'I' && ch5 != 'I' && ch5 != 'V' && ch5 != 'X' )// определяеи 2число и тип РИМ или АРАБ
                 {
                     arg2 = 1;
                     second = 1;
                 } else if 
-                    (ch4 == 'I' & ch5 == 'I' & ch6 != 'I') 
+                    (ch4 == 'I' && ch5 == 'I' && ch6 != 'I') 
             
                         
                 {
                     arg2 = 2;
                     second = 1;
                 }
-                else if (ch4 == 'I' & ch5 == 'I' & ch6 == 'I') 
+                else if (ch4 == 'I' && ch5 == 'I' && ch6 == 'I' && ch7 == ' ') 
             
             
                 {
@@ -467,31 +469,31 @@ import java.util.logging.Logger;
                 else if (ch4 == 'I' && ch5 == 'V' && ch6 == ' ') 
             
                             {
-                    arg2 = 5;
+                    arg2 = 4;
                     second = 1;
                 }
-                else if (ch4 == 'V' && ch5 != 'I' && ch5 == ' ' ) 
+                else if (ch4 == 'V' && ( ch5 != 'I' | ch5 == ' ' )) 
             
             
                 {
                     arg2 = 5;
                     second = 1;
                 }
-                else  if (ch4 == 'V' && ch5 == 'V' && ch6 != 'I' && ch6 == ' ') 
+                else  if (ch4 == 'V' && ch5 == 'I' && (ch6 != 'I' | ch6 == ' ')) 
             
             
                 {
                     arg2 = 6;
                     second = 1;
                 }
-                else if (ch4 == 'V' && ch5 == 'V' && ch6 == 'I' && ch7 != 'I' && ch7 == ' ') 
+                else if (ch4 == 'V' && ch5 == 'I' && ch6 == 'I' && (ch7 != 'I' | ch7 == ' ')) 
             
             
                 {
                     arg2 = 7;
                     second = 1;
                 }
-                else if (ch4 == 'V' && ch5 == 'V' && ch6 == 'I' && ch7 != 'I' && ch7 == ' ') 
+                else if (ch4 == 'V' && ch5 == 'I' && ch6 == 'I' && ch7 != 'I' && ch8 == ' ') 
             
             
                 {
@@ -505,14 +507,14 @@ import java.util.logging.Logger;
                     arg2 = 9;
                     second = 1;
                 }
-                else if (ch4 == 'X' && ch5 != 'I' && ch5 == ' ')
+                else if (ch4 == 'X' && ch5 == ' ')
               
             
                 {
                     arg2 = 10;
                     second = 1;
                 }
-                else if (ch4 == '1' && ch5 != '0' && ch5 == ' ')
+                else if (ch4 == '1' && (ch5 != '0' | ch5 == ' '))
               
                     
                 {
@@ -592,10 +594,11 @@ import java.util.logging.Logger;
             }
        
         
-        if (first == 1 && arg1  == 3)
+        if (first == 1 && (arg1  == 3 | arg1 ==7))
+                
 
         {
-            if (ch5 == 'I' && ch6 != 'I' && ch6 != 'V' && ch6 != 'X' && ch6 == ' ')// определяеи 2число и тип РИМ или АРАБ
+            if (ch5 == 'I' && ch6 != 'I' && ch6 != 'V' && ch6 != 'X' && ch7 == ' ')// определяеи 2число и тип РИМ или АРАБ
             {
                 arg2 = 1;
                 second = 1;
@@ -622,28 +625,28 @@ import java.util.logging.Logger;
                 arg2 = 5;
                 second = 1;
             }
-            else if (ch5 == 'V' && ch6 != 'I' )
+            else if (ch5 == 'V' && ch6 != 'I' && ch7 == ' ')
                 
                 
             {
                 arg2 = 5;
                 second = 1;
             }
-            else if (ch5 == 'V' && ch6 == 'V' && ch7 != 'I' && ch7 == ' ')
+            else if (ch5 == 'V' && ch6 == 'I' &&(ch7 != 'I' | ch7 == ' '))
                 
                 
             {
                 arg2 = 6;
                 second = 1;
             }
-            else if (ch5 == 'V' && ch6 == 'V' && ch7 == 'I' && ch8 != 'I' && ch8 == ' ')
+            else if (ch5 == 'V' && ch6 == 'I' && ch7 == 'I' && (ch8 != 'I' | ch8 == ' '))
                 
                 
             {
                 arg2 = 7;
                 second = 1;
             }
-            else if (ch5 == 'V' && ch6 == 'V' && ch7 == 'I' && ch8 != 'I' && ch8 == ' ')
+            else if (ch5 == 'V' && ch6 == 'I' && ch7 == 'I' && (ch8 != 'I' | ch8 == ' '))
                 
                 
             {
@@ -657,13 +660,13 @@ import java.util.logging.Logger;
                 arg2 = 9;
                 second = 1;
             }
-            else if (ch5 == 'X' && ch6 != 'I' && ch7 == ' ')
+            else if (ch5 == 'X' && ch6 == ' ')
               
             {
                 arg2 = 10;
                 second = 1;
             }
-            else if (ch5 == '1' && ch6 != '0' && ch7 == ' ')
+            else if (ch5 == '1' && (ch6 != '0' | ch6 == ' '))
                 
                 
             {
@@ -776,20 +779,20 @@ import java.util.logging.Logger;
             arg2 = 5;
             second = 1;
         }
-        else if (ch6 == 'V' && ch7 == 'V' && ch8 != 'I' && ch8 == ' ') 
+        else if (ch6 == 'V' && ch7 == 'I' && ch8 != 'I' && ch8 == ' ') 
             
         {
             arg2 = 6;
             second = 1;
         }
-        else if (ch6 == 'V' && ch7 == 'V' && ch8 == 'I' && ch9 != 'I' & ch9 == ' ') 
+        else if (ch6 == 'V' && ch7 == 'I' && ch8 == 'I' && (ch9 != 'I' | ch9 == ' ')) 
             
             
         {
             arg2 = 7;
             second = 1;
         }
-        else if (ch6 == 'V' && ch7 == 'V' && ch8 == 'I' && ch9 != 'I' & ch9 == ' ') 
+        else if (ch6 == 'V' && ch7 == 'I' && ch8 == 'I' && ch9 == 'I' && ch10 == ' ') 
             
             
         {
@@ -803,13 +806,13 @@ import java.util.logging.Logger;
             arg2 = 9;
             second = 1;
         }
-        else if (ch6 == 'X' && ch7 != 'I' && ch8 == ' ')
+        else if (ch6 == 'X' && (ch7 != 'I' | ch7 == ' '))
               
         {
             arg2 = 10;
             second = 1;
         }
-        else if (ch6 == '1' && ch7 != '0' && ch8 == ' ')
+        else if (ch6 == '1' && (ch7 != '0' | ch7 == ' '))
               
         {
             arg2 = 1;
@@ -884,65 +887,65 @@ import java.util.logging.Logger;
        
       }
 
-             else if (arg1 == 1 & arg1 == 5 & arg1 == 10 && first == 1 ){
+             else if ((arg1 == 1 | arg1 == 5 | arg1 == 10) && first == 1 ){
                  if (ch2 == '+') 
-                         {op=0;}
+                         {opCode=0;}
                  else if (ch2 == '-')
-                 {op=1;}
+                 {opCode=1;}
                  else if (ch2 == '*')
-                 {op=2;}
+                 {opCode=2;}
                  else if (ch2 == '/')
-                 {op=3;}
+                 {opCode=3;}
                else {System.out.println("Недопустимая операция");}}
-             if (arg1 == 2 & arg1 == 4 & arg1 == 6 & arg1 == 9 && first == 1){
+             if ((arg1 == 2 | arg1 == 4 | arg1 == 6 | arg1 == 9) && first == 1){
                 if (ch3 == '+') 
-                         {op=0;}
+                         {opCode=0;}
                  else if (ch3 == '-')
-                 {op=1;}
+                 {opCode=1;}
                  else if (ch3 == '*')
-                 {op=2;}
+                 {opCode=2;}
                  else if (ch3 == '/')
-                {op=3;}
+                {opCode=3;}
              else {System.out.println("Недопустимая операция");}
-             if (arg1  == 3 & arg1 == 7 && first == 1){
+             if (arg1  == 3 | arg1 == 7 && first == 1){
               if (ch4 == '+') 
-                         {op=0;}
+                         {opCode=0;}
                  else if (ch4 == '-')
-                 {op=1;}
+                 {opCode=1;}
                  else if (ch4 == '*')
-                 {op=2;}
+                 {opCode=2;}
                  else if (ch4 == '/')
-                 {op=3;}
+                 {opCode=3;}
                  else {System.out.println("Недопустимая операция");}
              if (arg1  == 8 && first == 1){
               if (ch5 == '+') 
-                         {op=0;}
+                         {opCode=0;}
                  else if (ch5 == '-')
-                 {op=1;}
+                 {opCode=1;}
                  else if (ch5 == '*')
-                 {op=2;}
+                 {opCode=2;}
                  else if (ch5 == '/')
-                 {op=3;}}
+                 {opCode=3;}}
                 else {System.out.println("Недопустимая операция");}
-              if (arg1 == 1 & arg1 == 2 & arg1 == 3 & arg1 == 4 & arg1 == 5 & arg1 == 6 & arg1 == 7 & arg1 == 8 & arg1 == 9 && first == 2 ){
+              if ((arg1 == 1 | arg1 == 2 | arg1 == 3 | arg1 == 4 | arg1 == 5 | arg1 == 6 | arg1 == 7 | arg1 == 8 | arg1 == 9) && first == 2 ){
                 if (ch2 == '+') 
-                         {op=0;}
+                         {opCode=0;}
                  else if (ch2 == '-')
-                 {op=1;}
+                 {opCode=1;}
                  else if (ch2 == '*')
-                 {op=2;}
+                 {opCode=2;}
                  else if (ch2 == '/')
-                 {op=3;}}
+                 {opCode=3;}}
                 else {System.out.println("Недопустимая операция");}
                 if (arg1 == 10 && first == 2 ){
                  if (ch2 == '+')
-                 {op=0;}
+                 {opCode=0;}
                  else if (ch2 == '-')
-                 {op=1;}
+                 {opCode=1;}
                  else if (ch2 == '*')
-                 {op=2;}
+                 {opCode=2;}
                  else if (ch2 == '/')
-                 {op=3;}}
+                 {opCode=3;}}
                 else {System.out.println("Недопустимая операция");}
         
            
@@ -952,27 +955,26 @@ import java.util.logging.Logger;
             
             if (first == 2 && second == 2){
             Operation op;
-                    op = myOpFactory.getOpInstance(operation);
-            System.out.println(Math.round(op.exec(arg1, arg2)));// Округляем результат до целого числа для арабских чисел
-            System.out.println(Math.round(operation));}
+                  op = myOpFactory.getOpInstance(operation);
+            System.out.println(Math.round(myOpFactory.getOpInstance(operation).exec(arg1, arg2)));// Округляем результат до целого числа для арабских чисел
+            }
 
             else  if (first == 1 && second==1 && op!=1){         // Переводим результат в римские числа 
             Operation op;
                     op = myOpFactory.getOpInstance(operation);
-            System.out.println(Convert.operation);}
+            System.out.println(Convert.operand);}
           
             else  if (first == 1 && second==1 && op==1 && arg1>arg2){// Переводим результат в римские числа разность более  0
             Operation op;
                     op = myOpFactory.getOpInstance(operation);
-            System.out.println(Convert.operation);}
+            System.out.println(Convert.operand);}
 
             else  if (first == 1 && second==1 && op==1 && arg1<arg2){// Переводим результат в римские числа разность менее 0
             Operation op = myOpFactory.getOpInstance(operation);
-            System.out.println(" - " + Convert.operation);}
+            System.out.println(" - " + Convert.operand);}
             
              else  if (first == 1 && second==1 && op==1 && arg1==arg2){// Переводим результат в римские числа разность 0
-            Operation op = myOpFactory.getOpInstance(operation);
-            System.out.println(" НОЛЬ  ");}// ноль у римлян отсутствовал
+             System.out.println(" НОЛЬ  ");}// ноль у римлян отсутствовал
                
  
             }
