@@ -889,63 +889,63 @@ import java.util.logging.Logger;
 
              else if ((arg1 == 1 | arg1 == 5 | arg1 == 10) && first == 1 ){
                  if (ch2 == '+') 
-                         {opCode=0;}
+                         {operation=0;}
                  else if (ch2 == '-')
-                 {opCode=1;}
+                 {operation=1;}
                  else if (ch2 == '*')
-                 {opCode=2;}
+                 {operation=2;}
                  else if (ch2 == '/')
-                 {opCode=3;}
+                 {operation=3;}
                else {System.out.println("Недопустимая операция");}}
              if ((arg1 == 2 | arg1 == 4 | arg1 == 6 | arg1 == 9) && first == 1){
                 if (ch3 == '+') 
-                         {opCode=0;}
+                         {operation=0;}
                  else if (ch3 == '-')
-                 {opCode=1;}
+                 {operation=1;}
                  else if (ch3 == '*')
-                 {opCode=2;}
+                 {operation=2;}
                  else if (ch3 == '/')
-                {opCode=3;}
+                {operation=3;}
              else {System.out.println("Недопустимая операция");}
              if (arg1  == 3 | arg1 == 7 && first == 1){
               if (ch4 == '+') 
-                         {opCode=0;}
+                         {operation=0;}
                  else if (ch4 == '-')
-                 {opCode=1;}
+                 {operation=1;}
                  else if (ch4 == '*')
-                 {opCode=2;}
+                 {operation=2;}
                  else if (ch4 == '/')
-                 {opCode=3;}
+                 {operation=3;}
                  else {System.out.println("Недопустимая операция");}
              if (arg1  == 8 && first == 1){
               if (ch5 == '+') 
-                         {opCode=0;}
+                         {operation=0;}
                  else if (ch5 == '-')
-                 {opCode=1;}
+                 {operation=1;}
                  else if (ch5 == '*')
-                 {opCode=2;}
+                 {operation=2;}
                  else if (ch5 == '/')
-                 {opCode=3;}}
+                 {operation=3;}}
                 else {System.out.println("Недопустимая операция");}
               if ((arg1 == 1 | arg1 == 2 | arg1 == 3 | arg1 == 4 | arg1 == 5 | arg1 == 6 | arg1 == 7 | arg1 == 8 | arg1 == 9) && first == 2 ){
                 if (ch2 == '+') 
-                         {opCode=0;}
+                         {operation=0;}
                  else if (ch2 == '-')
-                 {opCode=1;}
+                 {operation=1;}
                  else if (ch2 == '*')
-                 {opCode=2;}
+                 {operation=2;}
                  else if (ch2 == '/')
-                 {opCode=3;}}
+                 {operation=3;}}
                 else {System.out.println("Недопустимая операция");}
                 if (arg1 == 10 && first == 2 ){
                  if (ch2 == '+')
-                 {opCode=0;}
+                 {operation=0;}
                  else if (ch2 == '-')
-                 {opCode=1;}
+                 {operation=1;}
                  else if (ch2 == '*')
-                 {opCode=2;}
+                 {operation=2;}
                  else if (ch2 == '/')
-                 {opCode=3;}}
+                 {operation=3;}}
                 else {System.out.println("Недопустимая операция");}
         
            
