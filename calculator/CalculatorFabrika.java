@@ -139,8 +139,7 @@ import java.util.logging.Logger;
     private int op;
     public int operation;
 
-       
-       
+              
 
         public Calculator(MyOpFactory myOpFactory) {
             this.myOpFactory = myOpFactory;
@@ -152,13 +151,26 @@ import java.util.logging.Logger;
             int first = 0;
             int second = 0;
             boolean nextStep = true;                //  Условие выхода из цикла 
-            System.out.println("Введите арифметическую операцию");
+            
         try {
             TimeUnit.SECONDS.sleep(10);
         } catch (InterruptedException ex) {
             Logger.getLogger(Calculator.class.getName()).log(Level.SEVERE, null, ex);
         }
-            Scanner in = new Scanner(System.in);    //  Объявление потока ввода
+            Scanner in = new Scanner(System.in);  
+            System.out.println("Введите арифметическую операцию");
+            String phrase1 = sc.nextLine();
+		
+            ch1 = in.next().charAt(0);
+             ch2 = in.next().charAt(1);
+             ch3 = in.next().charAt(2);
+             ch4 = in.next().charAt(3);
+             ch5 = in.next().charAt(4);
+             ch6 = in.next().charAt(5);
+             ch7 = in.next().charAt(6);
+             ch8 = in.next().charAt(7);
+             ch9 = in.next().charAt(8);
+            
             do {
                
                
@@ -281,7 +293,7 @@ import java.util.logging.Logger;
             else 
               { 
                   System.out.println("Недопустимое значение");
-                  nextStep = true;
+                  nextStep = false;
                       }
             
             
@@ -722,7 +734,7 @@ import java.util.logging.Logger;
             else
             {
                 System.out.println("Недопустимое значение");
-                nextStep = true;
+                nextStep = false;
             }
         } 
     
@@ -860,7 +872,7 @@ import java.util.logging.Logger;
         else 
         {
                   System.out.println("Недопустимое значение");
-                  nextStep = true;
+                  nextStep = false;
                   }
 
     }
@@ -868,7 +880,7 @@ import java.util.logging.Logger;
         if (first!=second)
         {
             System.out.println("Ошибка. Нельзя оперировать арабскими и римскими числами одновременно!");
-            nextStep = true;
+            nextStep = false;
        
       }
 
@@ -967,9 +979,7 @@ import java.util.logging.Logger;
             while (nextStep);
      }
 
-    void exec() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     }
        
 
