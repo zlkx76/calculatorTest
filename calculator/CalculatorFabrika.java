@@ -841,7 +841,7 @@ import java.util.logging.Logger;
                                                             }
 
 
-                                                        if (first == 1 && (arg1  == 3 | arg1 ==7)){                                                        {
+                                                        if (first == 1 && (arg1  == 3 | arg1 ==7)){                                                       
                                                             if (ch[5] == 'I' && ch[6] != 'I' && ch[6] != 'V' && ch[6] != 'X' )// определяеи 2число и тип РИМ или АРАБ
                                                             {
                                                                 arg2 = 1;
@@ -926,11 +926,11 @@ import java.util.logging.Logger;
                                                                 first = 1;
                                                                 }
                                                                 else if (ch[1] == 'I' && ch[2] == 'I'&& ch[3]== 'I' ) {
-                
+                                                           
                                                                 arg1 = 3;
                                                                 first = 1;
                                                                }
-                                                                else if(ch[1] == 'I' && ch[2] == 'V') {
+                                                                if (ch[1] == 'I' && ch[2] == 'V') {
                                                                 arg1 = 4;
                                                                 first = 1;
                                                                  } 
@@ -1083,7 +1083,7 @@ import java.util.logging.Logger;
                                                                 System.out.println("Недопустимое значение");
                                                                 nextStep = false;
                                                             }
-                                                            
+                                                        }
                                                         
                                                            break;
 
@@ -1214,8 +1214,8 @@ import java.util.logging.Logger;
                                                                 arg1 = 8;
                                                                 first = 1;
                                                             }
-                                                            
-                                                           
+                                                        }
+                
                                                             if (first == 1 && arg1  == 8){                        // определяеи 2число и тип РИМ или АРАБ                                {
                                                             if (ch[6] == 'I' && ch[7] == 'I' )
                                                                 {
@@ -1387,10 +1387,10 @@ import java.util.logging.Logger;
                                                             }
                                                             }
                                                       
-                                                           break;
+                                                        
 
 
-                                                               if(ch[1] == 'V' && ch[2] == 'I' && ch[3] == 'I' && ch[4] == 'I')
+                                                               if (ch[1] == 'V' && ch[2] == 'I' && ch[3] == 'I' && ch[4] == 'I')
 
                                                             {
                                                                 arg1 = 8;
@@ -1432,7 +1432,7 @@ import java.util.logging.Logger;
                                                                 }break;
                                                            }
                                                         }
-                                                        }
+                                                        
                                                         
         /*                                                
         else if (ch[6] == 'V' && ch[7] == 'I' && ch[8] == 'I' && ch[9] == 'I' && ch[10] == ' ') 
