@@ -953,21 +953,24 @@ import java.util.logging.Logger;
             System.out.println(Math.round(myOpFactory.getOpInstance(operation).exec(arg1, arg2)));// Округляем результат до целого числа для арабских чисел
             }
 
-            else  if (first == 1 && second==1 && operation!=1){         // Переводим результат в римские числа 
+            else  if (first == 1 && second==1 && ( operation!=1 | operation==1 && arg1>arg2 )){         // Переводим результат в римские числа 
             //Operation op;
                    // op = myOpFactory.getOpInstance(operation);
-            System.out.println(operand.Convert(myOpFactory.getOpInstance(operation).exec(arg1, arg2)));}
-          
-            else  if (first == 1 && second==1 && operation==1 && arg1>arg2){// Переводим результат в римские числа разность более  0
+            int operand;
+            operand = myOpFactory.getOpInstance(operation).exec(arg1, arg2);
+            System.out.println(convert.operand);}
+           // else  if (first == 1 && second==1 && operation==1 && arg1>arg2){// Переводим результат в римские числа разность более  0
             //Operation op;
                     //op = myOpFactory.getOpInstance(operation);
-                Convert convert= new Convert();
+              //  Convert convert= new Convert();
                
-            System.out.println(convert.operand(myOpFactory.getOpInstance(operation).exec(arg1, arg2))));}
+          //  System.out.println(convert.operand(myOpFactory.getOpInstance(operation).exec(arg1, arg2))));}
 
             else  if (first == 1 && second==1 && operation==1 && arg1<arg2){// Переводим результат в римские числа разность менее 0
             // Operation op = myOpFactory.getOpInstance(operation);
-            System.out.println(" - " + Convert(myOpFactory.getOpInstance(operation).exec(arg1, arg2)));}
+                 int operand;
+            operand = myOpFactory.getOpInstance(operation).exec(arg1, arg2);
+            System.out.println(" - " + convert.operand);}
             
              else  if (first == 1 && second==1 && operation==1 && arg1==arg2){// Переводим результат в римские числа разность 0
              System.out.println(" НОЛЬ  ");}// ноль у римлян отсутствовал
