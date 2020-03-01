@@ -9,7 +9,7 @@ class Convert {
     //static boolean operation;
 
     
-public String intToRome(){
+public String intToRome(int operand){
 	String result="";
                 operand = Math.abs(operand);
 	while (operand>0){                // 100 есть максимальное из возможных чисел по условиям задания

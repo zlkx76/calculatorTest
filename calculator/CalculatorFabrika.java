@@ -127,21 +127,21 @@ import java.util.logging.Logger;
     
      class Calculator {
     private final MyOpFactory myOpFactory;
-    private char ch1;
-    private char ch2;
-    private char ch3;
-    private char ch4;
-    private char ch5;
-    private char ch6;
-    private char ch7;
-    private char ch8;
-    private char ch9;
-    private char ch10;
+   /* private char ch[1];
+    private char ch[2];
+    private char ch[3];
+    private char ch[4];
+    private char ch[5];
+    private char ch[6];
+    private char ch[7];
+    private char ch[8];
+    private char ch[9];
+    private char ch[1]0;*/
     private int op;
     public int operation;
+    private int i;
 
-              
-
+    
         public Calculator(MyOpFactory myOpFactory) {
             this.myOpFactory = myOpFactory;
         }
@@ -158,711 +158,1358 @@ import java.util.logging.Logger;
         } catch (InterruptedException ex) {
             Logger.getLogger(Calculator.class.getName()).log(Level.SEVERE, null, ex);
         }
-            Scanner in = new Scanner(System.in);  
+            
             System.out.println("Введите арифметическую выражение");
-          		
-            ch1 = in.next().charAt(0);
-             ch2 = in.next().charAt(1);
-             ch3 = in.next().charAt(2);
-             ch4 = in.next().charAt(3);
-             ch5 = in.next().charAt(4);
-             ch6 = in.next().charAt(5);
-             ch7 = in.next().charAt(6);
-             ch8 = in.next().charAt(7);
-             ch9 = in.next().charAt(8);
-             ch10 = in.next().charAt(9);
-             
+           Scanner in = new Scanner(System.in);  
+            String s= in.nextLine();
+           
+            int numberOfChars =s.length();
+            char [ ] ch =new char [numberOfChars];
+            for (int i=0; i<numberOfChars; i++){
+                ch[i]=s.charAt(i);
+            }
+            
+      /*  char ch[1] = s.charAt(0);
+        char ch[2] = s.charAt(1);
+        char ch[3] = s.charAt(2);
+        char ch[4] = s.charAt(3);
+        char ch[5] = s.charAt(4);
+        char ch[6] = s.charAt(5);
+        char ch[7] = s.charAt(6);
+        char ch[8] = s.charAt(7);
+        //char ch[9] = s.charAt(8);
+        //char ch[1]0 = s.charAt(9);
+         */  
+                       
             do {
-               
-                                          
-              if ((ch1 == 'I') && (ch2 != 'I') && (ch2 != 'V') && (ch2 != 'X'))// определяеи 1число и тип РИМ или АРАБ
-            {
-                arg1 = 1;
-                first = 1;
-                } else if (ch1 == 'I' && ch2 == 'I' && ch3 != 'I'){ 
-                
-                     arg1 = 2;
-                     first = 1;
-                    } else if (ch1 == 'I' && ch2 == 'I'&& ch3== 'I' ) {
-                
-                     arg1 = 3;
-                     first = 1;
-                    } else if(ch1 == 'I' && ch2 == 'V') {
-                         arg1 = 4;
-                         first = 1;
-                     } else if (ch1 == 'V' && ch2 != 'I'){
+               switch ((i/1)) {
+			case 3:
+				if ((ch[1] == 'I') && (ch[2] != 'I') && (ch[2] != 'V') && (ch[2] != 'X'))// определяеи 1число и тип РИМ или АРАБ
+                                                                {
+                                                                    arg1 = 1;
+                                                                    first = 1;
+                                                                    }
+                                                                 else if (ch[1] == 'V' && ch[2] != 'I'){
             
-                      arg1 = 5;
-                         first = 1;
-                        }
-            else if (ch1 == 'V' && ch2 == 'I' && ch3 != 'I')
+                                                                    arg1 = 5;
+                                                                    first = 1;
+                                                                      }
+                                                                   else if((ch[1] == 'X') && (ch[2] != 'I'))
               
-            {
-                arg1 = 6;
-                first = 1;
-            }
-            else if (ch1 == 'V' && ch2 == 'I' && ch3 == 'I' && ch4 != 'I')
-              
-            {
-                arg1 = 7;
-                first = 1;
-            }
-            else if(ch1 == 'V' && ch2 == 'I' && ch3 == 'I' && ch4 == 'I')
-                       
-            {
-                arg1 = 8;
-                first = 1;
-            }
-            else if (ch1 == 'I' && ch2 == 'X')
-              
-                        {
-                arg1 = 9;
-                first = 1;
-            }
-            else if((ch1 == 'X') && (ch2 != 'I'))
-              
-            
-            {
-                arg1 = 10;
-                first = 1;
-            }
-            else if(ch1 == '1' && ch2 != '0')
-              
-            
-            {
-                arg1 = 1;
-                first = 2;
-            }
-            else if (ch1 == '2')
-              
-                      
-            {
-                arg1 = 2;
-                first = 2;
-            }
-            else if (ch1 == '3')
-              
-                        {
-                arg1 = 3;
-                first = 2;
-            }
-            else if (ch1 == '4')
-              
-                        {
-                arg1 = 4;
-                first = 2;
-            }
-            else if (ch1 == '5')
-              
-             {
-                arg1 = 5;
-                first = 2;
-            }
-            else if (ch1 == '6')
+                                                                    {
+                                                                        arg1 = 10;
+                                                                        first = 1;
+                                                                    } 
+                                                                    else if(ch[1] == '1' && ch[2] != '0')
                           
-            {
-                arg1 = 6;
-                first = 2;
-            }
-            else if (ch1 == '7')
-              
-            {
-                arg1 = 7;
-                first = 2;
-            }
-            else if (ch1 == '8')
-              
-            {
-                arg1 = 8;
-                first = 2;
-            }
-            else if (ch1 == '9')
+                                                                    {
+                                                                        arg1 = 1;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[1] == '2')
+
+                                                                    {
+                                                                        arg1 = 2;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[1] == '3')
+
+                                                                    {
+                                                                        arg1 = 3;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[1] == '4')
+
+                                                                    {
+                                                                        arg1 = 4;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[1] == '5')
+
+                                                                     {
+                                                                        arg1 = 5;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[1] == '6')
+
+                                                                    {
+                                                                        arg1 = 6;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[1] == '7')
+
+                                                                    {
+                                                                        arg1 = 7;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[1] == '8')
+
+                                                                    {
+                                                                        arg1 = 8;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[1] == '9')
+
+                                                                    {
+                                                                        arg1 = 9;
+                                                                        first = 2;
+                                                                    }
+                                                                     if (ch[3] == 'I')
+                                                                    {
+                                                                        arg2 = 1;
+                                                                        second = 1;
+                                                                    }
+                                                                     else if (ch[3] == 'V')
+
+                                                                    {
+                                                                        arg1 = 5;
+                                                                       second = 1;
+                                                                    }
+                                                                     else if (ch[3] == 'X')
+
+                                                                    {
+                                                                        arg1 = 10;
+                                                                       second = 1;
+                                                                    } 
+                                                                     else if(ch[3] == '1' )
                           
-            {
-                arg1 = 9;
-                first = 2;
-            }
-            else if (ch1 == '1' && ch2 == '0')
-              
-                        {
-                arg1 = 10;
-                first = 2;
-            }
-            else 
-              { 
-                  System.out.println("Недопустимое значение");
-                  nextStep = false;
-                      }
-            
-            
-            if ((arg1 == 1 | arg1 == 5 | arg1 == 10) && first == 1) {
-                if (ch3 == 'I' && (ch4 != 'I' | ch4 != 'V' | ch4 != 'X' | ch4 == ' '))// определяеи 2число и тип РИМ или АРАБ
-                {
-                    arg2 = 1;
-                    second = 1;
-                } else if 
-                    (ch3 == 'I' && ch4 == 'I' && ( ch5 != 'I' | ch5 == ' ')) 
-                        
-                
-                {
-                    arg2 = 2;
-                    second = 1;
-                }
-                else if (ch3 == 'I' && ch4 == 'I' && ch5 == 'I'&& ch6 == ' ' ) 
-            
-            
-                {
-                    arg2 = 3;
-                    second = 1;
-                }
-                else if (ch3 == 'I' && ch4 == 'V' && ch5 == ' ') 
-            
-                {
-                    arg2 = 5;
-                    second = 1;
-                }
-                else if (ch3 =='V' && ch4 != 'I' && ch5 == ' ') 
-            
-            
-                {
-                    arg2 = 5;
-                    second = 1;
-                }
-                else if (ch3 == 'V' && ch4 == 'I' && (ch5 != 'I' | ch5 == ' ')) 
-            
-            
-                {
-                    arg2 = 6;
-                    second = 1;
-                }
-                else if (ch3 == 'V' && ch4 == 'I' && ch5 == 'I' && (ch6 != 'I' | ch6 == ' ')) 
-            
-            
-                {
-                    arg2 = 7;
-                    second = 1;
-                }
-                else if(ch3 == 'V' && ch4 == 'I' && ch5 == 'I' && (ch6 != 'I' | ch6 == ' ')) 
-            
-            
-                
-                {
-                    arg2 = 8;
-                    second = 1;
-                }
-                else if (ch3 == 'I' && ch4 == 'X' && ch5 == ' ') 
-            
+                                                                    {
+                                                                        arg1 = 1;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[3] == '2')
+
+                                                                    {
+                                                                        arg1 = 2;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[3] == '3')
+
+                                                                    {
+                                                                        arg1 = 3;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[3] == '4')
+
+                                                                    {
+                                                                        arg1 = 4;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[3] == '5')
+
+                                                                     {
+                                                                        arg1 = 5;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[3] == '6')
+
+                                                                    {
+                                                                        arg1 = 6;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[3] == '7')
+
+                                                                    {
+                                                                        arg1 = 7;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[3] == '8')
+
+                                                                    {
+                                                                        arg1 = 8;
+                                                                        first = 2;
+                                                                    }
+                                                                    else if (ch[3] == '9')
+
+                                                                    {
+                                                                        arg1 = 9;
+                                                                        first = 2;
+                                                                    }
+                                                                     else 
+                                                                    { 
+                                                                        System.out.println("Недопустимое значение");
+                                                                        nextStep = false;
+                                                                    } 
+                                                                    if (ch[2] == '+') 
+                                                                            {operation=0;}
+                                                                    else if (ch[2] == '-')
+                                                                    {operation=1;}
+                                                                    else if (ch[2] == '*')
+                                                                    {operation=2;}
+                                                                    else if (ch[2] == '/')
+                                                                    {operation=3;}
+                                                                    else  {System.out.println("Недопустимая операция");}
+                                                                   
+				break;
                             
-                {
-                    arg2 = 9;
-                    second = 1;
-                }
-                else if (ch3 == 'X' && (ch4 != 'I' | ch4 == ' '))
-              
-                           
-                {
-                    arg2 = 10;
-                    second = 1;
-                }
-                else if (ch3 == '1' && ch4 != '0' && ch5 == ' ')
-              
-                    
-                {
-                    arg2 = 1;
-                    second = 2;
-                }
-                else  if (ch3 == '2' && ch4 == ' ')
-              
-                                   
-                {
-                    arg2 = 2;
-                    second = 2;
-                }
-                else if  (ch3 == '3' && ch4 == ' ')
-             
-                   
-                {
-                    arg2 = 3;
-                    second = 2;
-                }
-                else if (ch3 == '4' && ch4 == ' ')
-              
-                     
-                {
-                    arg2 = 4;
-                    second = 2;
-                }
-                else if (ch3 == '5' && ch4 == ' ')
-              
-                     
-                {
-                    arg2 = 5;
-                    second = 2;
-                }
-                else if (ch3 == '6' && ch4 == ' ')
-              
-                      
-                {
-                    arg2 = 6;
-                    second = 2;
-                }
-                else if (ch3 == '7' && ch4 == ' ')
-              
-                     
-                {
-                    arg2 = 7;
-                    second = 2;
-                }
-                else if (ch3 == '8' && ch4 == ' ')
-              
-                 
-                {
-                    arg2 = 8;
-                    second = 2;
-                }
-                else if (ch3 == '9' && ch4 == ' ')
-              
+                            
+			case 4:
+				if ((ch[1] == 'I') && (ch[2] != 'I') && (ch[2] != 'V') && (ch[2] != 'X'))// определяеи 1число и тип РИМ или АРАБ
+                                                                {
+                                                                    arg1 = 1;
+                                                                    first = 1;
+                                                                    }
+                                                                else if (ch[1] == 'I' && ch[2] == 'I' && ch[3] != 'I')
+                                                                {
+                                                                arg1 = 2;
+                                                                first = 1;
+                                                                }
+                                                                 else if (ch[1] == 'I' && ch[2] == 'I'&& ch[3]== 'I' ) {
                 
-                {
-                    arg2 = 9;
-                    second = 2;
-                }
-                else if (ch3 == '1' && ch4 == '0' && ch5 == ' ')
-              
-                
-                        {
-                    arg2 = 10;
-                    second = 2;
-                }
-                else 
-              { 
-                  System.out.println("Недопустимое значение");
-                  nextStep = true;
-                      }
+                                                                arg1 = 3;
+                                                                first = 1;
+                                                               }
+                                                                else if(ch[1] == 'I' && ch[2] == 'V') {
+                                                                arg1 = 4;
+                                                                first = 1;
+                                                                 } 
+                                                                else if (ch[1] == 'V' && ch[2] != 'I'){
 
-            }
-            if (arg1 == 2  | arg1 == 4 | arg1 == 6 | arg1 == 9 ) {
+                                                                arg1 = 5;
+                                                                first = 1;
+                                                               }
+                                                               else if (ch[1] == 'V' && ch[2] == 'I' && ch[3] != 'I')
 
-                if (ch4 == 'I' && ch5 != 'I' && ch5 != 'V' && ch5 != 'X' )// определяеи 2число и тип РИМ или АРАБ
-                {
-                    arg2 = 1;
-                    second = 1;
-                } else if 
-                    (ch4 == 'I' && ch5 == 'I' && ch6 != 'I') 
-            
-                        
-                {
-                    arg2 = 2;
-                    second = 1;
-                }
-                else if (ch4 == 'I' && ch5 == 'I' && ch6 == 'I' && ch7 == ' ') 
-            
-            
-                {
-                    arg2 = 3;
-                   second = 1;
-                }
-                else if (ch4 == 'I' && ch5 == 'V' && ch6 == ' ') 
-            
-                            {
-                    arg2 = 4;
-                    second = 1;
-                }
-                else if (ch4 == 'V' && ( ch5 != 'I' | ch5 == ' ' )) 
-            
-            
-                {
-                    arg2 = 5;
-                    second = 1;
-                }
-                else  if (ch4 == 'V' && ch5 == 'I' && (ch6 != 'I' | ch6 == ' ')) 
-            
-            
-                {
-                    arg2 = 6;
-                    second = 1;
-                }
-                else if (ch4 == 'V' && ch5 == 'I' && ch6 == 'I' && (ch7 != 'I' | ch7 == ' ')) 
-            
-            
-                {
-                    arg2 = 7;
-                    second = 1;
-                }
-                else if (ch4 == 'V' && ch5 == 'I' && ch6 == 'I' && ch7 != 'I' && ch8 == ' ') 
-            
-            
-                {
-                    arg2 = 8;
-                    second = 1;
-                }
-                else if (ch4 == 'I' && ch5 == 'X' && ch6 == ' ') 
-            
-            
-                {
-                    arg2 = 9;
-                    second = 1;
-                }
-                else if (ch4 == 'X' && ch5 == ' ')
+                                                                {
+                                                                    arg1 = 6;
+                                                                    first = 1;
+                                                                }
+                                                                 
+                                                                 else if (ch[1] == 'I' && ch[2] == 'X')
               
-            
-                {
-                    arg2 = 10;
-                    second = 1;
-                }
-                else if (ch4 == '1' && (ch5 != '0' | ch5 == ' '))
-              
-                    
-                {
-                    arg2 = 1;
-                    second = 2;
-                }
-                else if(ch4 == '2' && ch5 == ' ')
-              
-                    
-                {
-                    arg2 = 2;
-                    second = 2;
-                }
-                else if (ch4 == '3' && ch5 == ' ')
-             
-                
-                {
-                    arg2 = 3;
-                    second = 2;
-                }
-                else if (ch4 == '4' && ch5 == ' ')
-              
-                    
-                {
-                    arg2 = 4;
-                    second = 2;
-                }
-                else if (ch4 == '5' && ch5 == ' ')
-              
-                     
-                {
-                    arg2 = 5;
-                    second = 2;
-                }
-                else if (ch4 == '6' && ch5 == ' ')
-              
-                       
-                
-                {
-                    arg2 = 6;
-                    second = 2;
-                }
-                else if (ch4 == '7' && ch5 == ' ')
-              
-                    
-                
-                {
-                    arg2 = 7;
-                    second = 2;
-                }
-                else if (ch4 == '8' && ch5 == ' ')
-              
-                {
-                    arg2 = 8;
-                    second = 2;
-                }
-                else if (ch4 == '9' && ch5 == ' ')
-              
-                     
-                {
-                    arg2 = 9;
-                    second = 2;
-                }
-                else if (ch4 == '1' && ch5 == '0' && ch6 == ' ')
-              
-                
-                {
-                    arg2 = 10;
-                    second = 2;
-                }
-                else 
-              { 
-                  System.out.println("Недопустимое значение");
-                  nextStep = true;
-                      }
+                                                                {
+                                                                    arg1 = 9;
+                                                                    first = 1;
+                                                                }
+                                                                else if((ch[1] == 'X') && (ch[2] != 'I'))
 
-            }
-       
-        
-        if (first == 1 && (arg1  == 3 | arg1 ==7))
-                
-
-        {
-            if (ch5 == 'I' && ch6 != 'I' && ch6 != 'V' && ch6 != 'X' && ch7 == ' ')// определяеи 2число и тип РИМ или АРАБ
-            {
-                arg2 = 1;
-                second = 1;
-            } else if
-                    (ch5 == 'I' && ch6 == 'I' && ch7 != 'I' && ch8 == ' ')
-                
-            {
-                arg2 = 2;
-                second = 1;
-            }
-            
-            
-            if (ch5 == 'I' && ch6 == 'I' && ch7 == 'I' && ch8 == ' ')
-                
-                
-            {
-                arg2 = 3;
-                second = 1;
-            }
-            else if (ch5 == 'I' && ch6 == 'V' && ch7 == ' ')
-                
-                
-            {
-                arg2 = 5;
-                second = 1;
-            }
-            else if (ch5 == 'V' && ch6 != 'I' && ch7 == ' ')
-                
-                
-            {
-                arg2 = 5;
-                second = 1;
-            }
-            else if (ch5 == 'V' && ch6 == 'I' &&(ch7 != 'I' | ch7 == ' '))
-                
-                
-            {
-                arg2 = 6;
-                second = 1;
-            }
-            else if (ch5 == 'V' && ch6 == 'I' && ch7 == 'I' && (ch8 != 'I' | ch8 == ' '))
-                
-                
-            {
-                arg2 = 7;
-                second = 1;
-            }
-            else if (ch5 == 'V' && ch6 == 'I' && ch7 == 'I' && (ch8 != 'I' | ch8 == ' '))
-                
-                
-            {
-                arg2 = 8;
-                second = 1;
-            }
-            else if (ch5 == 'I' && ch6 == 'X' && ch7 == ' ')
-                
-                
-            {
-                arg2 = 9;
-                second = 1;
-            }
-            else if (ch5 == 'X' && ch6 == ' ')
+                                                                {
+                                                                    arg1 = 10;
+                                                                    first = 1;
+                                                                }
+                                                                else if(ch[1] == '1' && ch[2] != '0')
               
-            {
-                arg2 = 10;
-                second = 1;
-            }
-            else if (ch5 == '1' && (ch6 != '0' | ch6 == ' '))
-                
-                
-            {
-                arg2 = 1;
-                second = 2;
-            }
-            else if (ch5 == '2' && ch6 == ' ')
-                
-                
-            {
-                arg2 = 2;
-                second = 2;
-            }
-            else if (ch5 == '3' && ch6 == ' ')
-                
-                
-            {
-                arg2 = 3;
-                second = 2;
-            }
-            else if (ch5 == '4' && ch6 == ' ')
-                
-                
-            {
-                arg2 = 4;
-                second = 2;
-            }
-            else if (ch5 == '5' && ch6 == ' ')
-                
-                
-            {
-                arg2 = 5;
-                second = 2;
-            }
-            else if (ch5 == '6' && ch6 == ' ')
-                
-                
-            {
-                arg2 = 6;
-                second = 2;
-            }
-            else if (ch5 == '7' && ch6 == ' ')
-                
-                
-            {
-                arg2 = 7;
-                second = 2;
-            }
-            else if (ch5 == '8' && ch6 == ' ')
-              
-            {
-                arg2 = 8;
-                second = 2;
-            }
-            else if(ch5 == '9' && ch6 == ' ')
-                
-                
-            {
-                arg2 = 9;
-                second = 2;
-            }
-            else if (ch5 == '1' && ch6 == '0' && ch7 == ' ')
-              
-            {
-                arg2 = 10;
-                second = 2;
-            }
-            else
-            {
-                System.out.println("Недопустимое значение");
-                nextStep = false;
-            }
-        } 
-    
+                                                                {
+                                                                    arg1 = 1;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '2')
 
-        else if (arg1  == 8 && first == 1)
-{
+                                                                {
+                                                                    arg1 = 2;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '3')
 
-            if (ch6 == 'I' && ch7 != 'I' && ch7 != 'V' && ch7 != 'X' && ch8 == ' ')// определяеи 2число и тип РИМ или АРАБ
-        {
-            arg2 = 1;
-            second = 1;
-        } else if 
-            (ch6 == 'I' && ch7 == 'I' && ch8 != 'I' && ch9 == ' ') 
+                                                                            {
+                                                                    arg1 = 3;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '4')
+
+                                                                            {
+                                                                    arg1 = 4;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '5')
+
+                                                                 {
+                                                                    arg1 = 5;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '6')
+
+                                                                {
+                                                                    arg1 = 6;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '7')
+
+                                                                {
+                                                                    arg1 = 7;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '8')
+
+                                                                {
+                                                                    arg1 = 8;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '9')
+
+                                                                {
+                                                                    arg1 = 9;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '1' && ch[2] == '0')
+
+                                                                 {
+                                                                    arg1 = 10;
+                                                                    first = 2;
+                                                                }
+                                                                 else 
+                                                                { 
+                                                                    System.out.println("Недопустимое значение");
+                                                                    nextStep = false;
+                                                                }
+                                                                   if ((arg1 == 1 | arg1 == 5 | arg1 == 10) && first == 1 ){
+                                                                    if (ch[2] == '+') 
+                                                                            {operation=0;}
+                                                                    else if (ch[2] == '-')
+                                                                    {operation=1;}
+                                                                    else if (ch[2] == '*')
+                                                                    {operation=2;}
+                                                                    else if (ch[2] == '/')
+                                                                    {operation=3;}
+                                                                  else {System.out.println("Недопустимая операция");}}
+                                                                if ((arg1 == 2 | arg1 == 4 | arg1 == 6 | arg1 == 9) && first == 1){
+                                                                   if (ch[3] == '+') 
+                                                                            {operation=0;}
+                                                                    else if (ch[3] == '-')
+                                                                    {operation=1;}
+                                                                    else if (ch[3] == '*')
+                                                                    {operation=2;}
+                                                                    else if (ch[3] == '/')
+                                                                   {operation=3;}
+                                                                else {System.out.println("Недопустимая операция");}
+                                                                 }
+                                                                  if ((arg1 == 1 | arg1 == 2 | arg1 == 3 | arg1 == 4 | arg1 == 5 | arg1 == 6 | arg1 == 7 | arg1 == 8 | arg1 == 9) && first == 2 ){
+                                                                 if (ch[2] == '+') 
+                                                                         {operation=0;}
+                                                                 else if (ch[2] == '-')
+                                                                 {operation=1;}
+                                                                 else if (ch[2] == '*')
+                                                                 {operation=2;}
+                                                                 else if (ch[2] == '/')
+                                                                 {operation=3;}}
+                                                                else {System.out.println("Недопустимая операция");}
+                                                                if (arg1 == 10 && first == 2 ) {
+                                                                 if (ch[3] == '+')
+                                                                 {operation=0;}
+                                                                 else if (ch[3] == '-')
+                                                                 {operation=1;}
+                                                                 else if (ch[3] == '*')
+                                                                 {operation=2;}
+                                                                 else if (ch[3] == '/')
+                                                                 {operation=3;}}
+                                                                else {System.out.println("Недопустимая операция");}
+                                                                if ((arg1 == 1 | arg1 == 5 | arg1 == 10) && first == 1 ){
+                                                                if (ch[2] == '+') 
+                                                                        {operation=0;}
+                                                                else if (ch[2] == '-')
+                                                                {operation=1;}
+                                                                else if (ch[2] == '*')
+                                                                {operation=2;}
+                                                                else if (ch[2] == '/')
+                                                                {operation=3;}
+                                                              else {System.out.println("Недопустимая операция");}}
+                                                              if ((arg1 == 2 | arg1 == 4 | arg1 == 6 | arg1 == 9) && first == 1){
+                                                               if (ch[3] == '+') 
+                                                                        {operation=0;}
+                                                                else if (ch[3] == '-')
+                                                                {operation=1;}
+                                                                else if (ch[3] == '*')
+                                                                {operation=2;}
+                                                                else if (ch[3] == '/')
+                                                               {operation=3;}
+                                                               else {System.out.println("Недопустимая операция");}}
             
-               
-        
-        {
-            arg2 = 2;
-            second = 1;
-        }
-        else if (ch6 == 'I' && ch7 == 'I' && ch8 == 'I' && ch9 ==  ' ') 
+				break;
+                                
+                                                     case 5:  
+                                                                if (ch[1] == 'I' && ((ch[2] != 'I') | (ch[2] != 'V') | (ch[2] != 'X')))// определяеи 1число и тип РИМ или АРАБ
+                                                                {
+                                                                    arg1 = 1;
+                                                                    first = 1;
+                                                                    }
+                                                                else if (ch[1] == 'I' && ch[2] == 'I' && ch[3] != 'I')
+                                                                {
+                                                                arg1 = 2;
+                                                                first = 1;
+                                                                }
+                                                                else if (ch[1] == 'I' && ch[2] == 'I'&& ch[3]== 'I' ) {
+                
+                                                                arg1 = 3;
+                                                                first = 1;
+                                                               }
+                                                                else if(ch[1] == 'I' && ch[2] == 'V') {
+                                                                arg1 = 4;
+                                                                first = 1;
+                                                                 } 
+                                                                else if (ch[1] == 'V' && ch[2] != 'I'){
+
+                                                                arg1 = 5;
+                                                                first = 1;
+                                                               }
+                                                               else if (ch[1] == 'V' && ch[2] == 'I' && ch[3] != 'I')
+
+                                                                {
+                                                                    arg1 = 6;
+                                                                    first = 1;
+                                                                }
+                                                                else if (ch[1] == 'V' && ch[2] == 'I' && ch[3] == 'I' && ch[4] != 'I')
+              
+                                                                {
+                                                                    arg1 = 7;
+                                                                    first = 1;
+                                                                }
+                                                                 else if (ch[1] == 'I' && ch[2] == 'X')
+              
+                                                                {
+                                                                    arg1 = 9;
+                                                                    first = 1;
+                                                                }
+                                                                else if((ch[1] == 'X') && (ch[2] != 'I'))
+
+                                                                {
+                                                                    arg1 = 10;
+                                                                    first = 1;
+                                                                }
+                                                                else if(ch[1] == '1' && ch[2] != '0')
+              
+                                                                {
+                                                                    arg1 = 1;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '2')
+
+                                                                {
+                                                                    arg1 = 2;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '3')
+
+                                                                            {
+                                                                    arg1 = 3;
+                                                                    first = 2;
+                                                                }
+                                                                
+                                                                else if (ch[1] == '4')
+
+                                                                            {
+                                                                    arg1 = 4;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '5')
+
+                                                                 {
+                                                                    arg1 = 5;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '6')
+
+                                                                {
+                                                                    arg1 = 6;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '7')
+
+                                                                {
+                                                                    arg1 = 7;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '8')
+
+                                                                {
+                                                                    arg1 = 8;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '9')
+
+                                                                {
+                                                                    arg1 = 9;
+                                                                    first = 2;
+                                                                }
+                                                                else if (ch[1] == '1' && ch[2] == '0')
+
+                                                                            {
+                                                                    arg1 = 10;
+                                                                    first = 2;
+                                                                }
+                                                                 else 
+                                                                { 
+                                                                    System.out.println("Недопустимое значение");
+                                                                    nextStep = false;
+                                                                }
+                                                                 if ((arg1 == 1 | arg1 == 5 | arg1 == 10) && first == 1 ){
+                                                                    if (ch[2] == '+') 
+                                                                            {operation=0;}
+                                                                    else if (ch[2] == '-')
+                                                                    {operation=1;}
+                                                                    else if (ch[2] == '*')
+                                                                    {operation=2;}
+                                                                    else if (ch[2] == '/')
+                                                                    {operation=3;}
+                                                                  else {System.out.println("Недопустимая операция");}}
+                                                                if ((arg1 == 2 | arg1 == 4 | arg1 == 6 | arg1 == 9) && first == 1){
+                                                                   if (ch[3] == '+') 
+                                                                            {operation=0;}
+                                                                    else if (ch[3] == '-')
+                                                                    {operation=1;}
+                                                                    else if (ch[3] == '*')
+                                                                    {operation=2;}
+                                                                    else if (ch[3] == '/')
+                                                                   {operation=3;}
+                                                                 else {System.out.println("Недопустимая операция");}}
+                                                                
+                                                                  if (arg1  == 3 | arg1 == 7 && first == 1){
+                                                                  if (ch[4] == '+') 
+                                                                           {operation=0;}
+                                                                   else if (ch[4] == '-')
+                                                                   {operation=1;}
+                                                                   else if (ch[4] == '*')
+                                                                   {operation=2;}
+                                                                   else if (ch[4] == '/')
+                                                                   {operation=3;}
+                                                                   else {System.out.println("Недопустимая операция");}
+                                                                    }
+                                                                                                                                                                   
             
+                                                                if ((arg1 == 1 | arg1 == 5 | arg1 == 10) && first == 1) {
+                                                                if  (ch[3] == 'I' && ch[4] == 'I' && ch[5] == 'I' ) 
+
+                                                                {
+                                                                    arg2 = 3;
+                                                                    second = 1;
+                                                                }
+                                                                                                                                
+                                                                else if (ch[3] == 'V' && ch[4] == 'I' && ch[5] == 'I' && ch[6] != 'I' ) 
+
+                                                                {
+                                                                    arg2 = 7;
+                                                                    second = 1;
+                                                                }
+                                                               
+                                                                else if (ch[3] == '1' && ch[4] == '0')
+
+                                                                        {
+                                                                    arg2 = 10;
+                                                                    second = 2;
+                                                                }
+                                                                else 
+                                                              { 
+                                                                  System.out.println("Недопустимое значение");
+                                                                  nextStep = true;
+                                                                      }
+
+                                                              }
+                                                              if (arg1 == 2  | arg1 == 4 | arg1 == 6 | arg1 == 9 ) {
+
+                                                               if (ch[4] == 'I' && ch[5] != 'I' && ch[5] != 'V' && ch[5] != 'X' )// определяеи 2число и тип РИМ или АРАБ
+                                                                {
+                                                                    arg2 = 1;
+                                                                    second = 1;
+                                                                } else if 
+                                                                    (ch[4] == 'I' && ch[5] == 'I' && ch[6] != 'I') 
+
+
+                                                                {
+                                                                    arg2 = 2;
+                                                                    second = 1;
+                                                                }
+                                                                else if (ch[4] == 'I' && ch[5] == 'I' && ch[6] == 'I' && ch[7] == ' ') 
+
+
+                                                                {
+                                                                    arg2 = 3;
+                                                                   second = 1;
+                                                                }
+                                                                else if (ch[4] == 'I' && ch[5] == 'V' && ch[6] == ' ') 
+
+                                                                            {
+                                                                    arg2 = 4;
+                                                                    second = 1;
+                                                                }
+                                                                else if (ch[4] == 'V' && ( ch[5] != 'I' | ch[5] == ' ' )) 
+
+
+                                                                {
+                                                                    arg2 = 5;
+                                                                    second = 1;
+                                                                }
+                                                                else  if (ch[4] == 'V' && ch[5] == 'I' && (ch[6] != 'I' | ch[6] == ' ')) 
+
+
+                                                                {
+                                                                    arg2 = 6;
+                                                                    second = 1;
+                                                                }
+                                                                else if (ch[4] == 'V' && ch[5] == 'I' && ch[6] == 'I' && (ch[7] != 'I' | ch[7] == ' ')) 
+
+
+                                                                {
+                                                                    arg2 = 7;
+                                                                    second = 1;
+                                                                }
+                                                                else if (ch[4] == 'V' && ch[5] == 'I' && ch[6] == 'I' && ch[7] != 'I' && ch[8] == ' ') 
+
+
+                                                                {
+                                                                    arg2 = 8;
+                                                                    second = 1;
+                                                                }
+                                                                else if (ch[4] == 'I' && ch[5] == 'X' && ch[6] == ' ') 
+
+
+                                                                {
+                                                                    arg2 = 9;
+                                                                    second = 1;
+                                                                }
+                                                                else if (ch[4] == 'X' && ch[5] == ' ')
+
+
+                                                                {
+                                                                    arg2 = 10;
+                                                                    second = 1;
+                                                                }
+                                                                else if (ch[4] == '1' && (ch[5] != '0' | ch[5] == ' '))
+
+
+                                                                {
+                                                                    arg2 = 1;
+                                                                    second = 2;
+                                                                }
+                                                                else if(ch[4] == '2' && ch[5] == ' ')
+
+
+                                                                {
+                                                                    arg2 = 2;
+                                                                    second = 2;
+                                                                }
+                                                                else if (ch[4] == '3' && ch[5] == ' ')
+
+
+                                                                {
+                                                                    arg2 = 3;
+                                                                    second = 2;
+                                                                }
+                                                                else if (ch[4] == '4' && ch[5] == ' ')
+
+
+                                                                {
+                                                                    arg2 = 4;
+                                                                    second = 2;
+                                                                }
+                                                                else if (ch[4] == '5' && ch[5] == ' ')
+
+
+                                                                {
+                                                                    arg2 = 5;
+                                                                    second = 2;
+                                                                }
+                                                                else if (ch[4] == '6' && ch[5] == ' ')
+
+
+
+                                                                {
+                                                                    arg2 = 6;
+                                                                    second = 2;
+                                                                }
+                                                                else if (ch[4] == '7' && ch[5] == ' ')
+
+
+                                                                {
+                                                                    arg2 = 7;
+                                                                    second = 2;
+                                                                }
+                                                                else if (ch[4] == '8' && ch[5] == ' ')
+
+                                                                {
+                                                                    arg2 = 8;
+                                                                    second = 2;
+                                                                }
+                                                                else if (ch[4] == '9' && ch[5] == ' ')
+
+
+                                                                {
+                                                                    arg2 = 9;
+                                                                    second = 2;
+                                                                }
+                                                                else if (ch[4] == '1' && ch[5] == '0' && ch[6] == ' ')
+
+
+                                                                {
+                                                                    arg2 = 10;
+                                                                    second = 2;
+                                                                }
+                                                                else 
+                                                              { 
+                                                                  System.out.println("Недопустимое значение");
+                                                                  nextStep = true;
+                                                                      }
+
+                                                            }
+
+
+                                                        if (first == 1 && (arg1  == 3 | arg1 ==7)){                                                        {
+                                                            if (ch[5] == 'I' && ch[6] != 'I' && ch[6] != 'V' && ch[6] != 'X' )// определяеи 2число и тип РИМ или АРАБ
+                                                            {
+                                                                arg2 = 1;
+                                                                second = 1;
+                                                            } else if
+                                                                    (ch[5] == 'I' && ch[6] == 'I' && ch[7] != 'I' && ch[8] == ' ')
+
+                                                            {
+                                                                arg2 = 2;
+                                                                second = 1;
+                                                            }
+
+
+                                                            if (ch[5] == 'I' && ch[6] == 'I' && ch[7] == 'I' && ch[8] == ' ')
+
+
+                                                            {
+                                                                arg2 = 3;
+                                                                second = 1;
+                                                            }
+                                                            else if (ch[5] == 'I' && ch[6] == 'V' && ch[7] == ' ')
+
+
+                                                            {
+                                                                arg2 = 5;
+                                                                second = 1;
+                                                            }
+                                                            else if (ch[5] == 'V' && ch[6] != 'I' && ch[7] == ' ')
+
+
+                                                            {
+                                                                arg2 = 5;
+                                                                second = 1;
+                                                            }
+                                                            else if (ch[5] == 'V' && ch[6] == 'I' &&(ch[7] != 'I' | ch[7] == ' '))
+
+
+                                                            {
+                                                                arg2 = 6;
+                                                                second = 1;
+                                                            }
+                                                            
+                                                            
+                                                            else if (ch[5] == 'I' && ch[6] == 'X' )
+
+
+                                                            {
+                                                                arg2 = 9;
+                                                                second = 1;
+                                                            }
+                                                            else if (ch[5] == 'X' && ch[6] == ' ')
+
+                                                            {
+                                                                arg2 = 10;
+                                                                second = 1;
+                                                            }
+                                                            
+                                                            else if (ch[5] == '1' && ch[6] == '0' )
+
+                                                            {
+                                                                arg2 = 10;
+                                                                second = 2;
+                                                            }
+                                                            else
+                                                            {
+                                                                System.out.println("Недопустимое значение");
+                                                                nextStep = false;
+                                                            }
+                                                            
+                                                        }
+                                                           break;
+
+                                                 case 6:  
+                                                                if (ch[1] == 'I' && ((ch[2] != 'I') | (ch[2] != 'V') | (ch[2] != 'X')))// определяеи 1число и тип РИМ или АРАБ
+                                                                {
+                                                                    arg1 = 1;
+                                                                    first = 1;
+                                                                    }
+                                                                else if (ch[1] == 'I' && ch[2] == 'I' && ch[3] != 'I')
+                                                                {
+                                                                arg1 = 2;
+                                                                first = 1;
+                                                                }
+                                                                else if (ch[1] == 'I' && ch[2] == 'I'&& ch[3]== 'I' ) {
+                
+                                                                arg1 = 3;
+                                                                first = 1;
+                                                               }
+                                                                else if(ch[1] == 'I' && ch[2] == 'V') {
+                                                                arg1 = 4;
+                                                                first = 1;
+                                                                 } 
+                                                                else if (ch[1] == 'V' && ch[2] != 'I'){
+
+                                                                arg1 = 5;
+                                                                first = 1;
+                                                               }
+                                                               else if (ch[1] == 'V' && ch[2] == 'I' && ch[3] != 'I')
+
+                                                                {
+                                                                    arg1 = 6;
+                                                                    first = 1;
+                                                                }
+                                                                else if (ch[1] == 'V' && ch[2] == 'I' && ch[3] == 'I' && ch[4] != 'I')
+              
+                                                                {
+                                                                    arg1 = 7;
+                                                                    first = 1;
+                                                                }
+                                                                 else if (ch[1] == 'V' && ch[2] == 'I' && ch[3] == 'I' && ch[4] == 'I')
+              
+                                                                {
+                                                                    arg1 = 8;
+                                                                    first = 1;
+                                                                }
+                                                                 else if (ch[1] == 'I' && ch[2] == 'X')
+              
+                                                                {
+                                                                    arg1 = 9;
+                                                                    first = 1;
+                                                                }
+                                                                else if((ch[1] == 'X') && (ch[2] != 'I'))
+
+                                                                {
+                                                                    arg1 = 10;
+                                                                    first = 1;
+                                                                }
+                                                               
+                                                                 else 
+                                                                { 
+                                                                    System.out.println("Недопустимое значение");
+                                                                    nextStep = false;
+                                                                }
+                                                                 if ((arg1 == 1 | arg1 == 5 | arg1 == 10) && first == 1 ){
+                                                                    if (ch[2] == '+') 
+                                                                            {operation=0;}
+                                                                    else if (ch[2] == '-')
+                                                                    {operation=1;}
+                                                                    else if (ch[2] == '*')
+                                                                    {operation=2;}
+                                                                    else if (ch[2] == '/')
+                                                                    {operation=3;}
+                                                                  else {System.out.println("Недопустимая операция");}}
+                                                                if ((arg1 == 2 | arg1 == 4 | arg1 == 6 | arg1 == 9) && first == 1){
+                                                                   if (ch[3] == '+') 
+                                                                            {operation=0;}
+                                                                    else if (ch[3] == '-')
+                                                                    {operation=1;}
+                                                                    else if (ch[3] == '*')
+                                                                    {operation=2;}
+                                                                    else if (ch[3] == '/')
+                                                                   {operation=3;}
+                                                                 else {System.out.println("Недопустимая операция");}}
+                                                                
+                                                                  if ((arg1  == 3 | arg1 == 7) && first == 1){
+                                                                  if (ch[4] == '+') 
+                                                                           {operation=0;}
+                                                                   else if (ch[4] == '-')
+                                                                   {operation=1;}
+                                                                   else if (ch[4] == '*')
+                                                                   {operation=2;}
+                                                                   else if (ch[4] == '/')
+                                                                   {operation=3;}
+                                                                   else {System.out.println("Недопустимая операция");}
+                                                                    }
+                                                                                                                                                                   
             
-        {
-            arg2 = 3;
-            second = 1;
-        }
-        else  if (ch6 == 'I' && ch7 == 'V' && ch8 == ' ') 
-            
-            
-        {
-            arg2 = 4;
-            second = 1;
-        }
-        else if (ch6 == 'V' && ch7 != 'I' && ch8 == ' ') 
-            
-            
-        {
-            arg2 = 5;
-            second = 1;
-        }
-        else if (ch6 == 'V' && ch7 == 'I' && ch8 != 'I' && ch8 == ' ') 
-            
-        {
-            arg2 = 6;
-            second = 1;
-        }
-        else if (ch6 == 'V' && ch7 == 'I' && ch8 == 'I' && (ch9 != 'I' | ch9 == ' ')) 
-            
-            
-        {
-            arg2 = 7;
-            second = 1;
-        }
-        else if (ch6 == 'V' && ch7 == 'I' && ch8 == 'I' && ch9 == 'I' && ch10 == ' ') 
+                                                                if ((arg1 == 1 | arg1 == 5 | arg1 == 10) && first == 1) {
+                                                                                                                             
+                                                                if (ch[3] == 'V' && ch[4] == 'I' && ch[5] == 'I' && ch[6] == 'I' ) 
+
+                                                                {
+                                                                    arg2 = 8;
+                                                                    second = 1;
+                                                                }
+                                                               
+                                                                else 
+                                                              { 
+                                                                  System.out.println("Недопустимое значение");
+                                                                  nextStep = true;
+                                                                      }
+
+                                                              }
+                                                              if (arg1 == 2  | arg1 == 4 | arg1 == 6 | arg1 == 9 ) {
+
+                                                               if (ch[4] == 'I' && ch[5]== 'I' && ch[6] == 'I' )// определяеи 2число и тип РИМ или АРАБ
+                                                                {
+                                                                    arg2 = 3;
+                                                                    second = 1;
+                                                                } else if 
+                                                                    (ch[4] == 'V' && ch[5] == 'I' && ch[6] == 'I') 
+
+
+                                                                {
+                                                                    arg2 = 7;
+                                                                    second = 1;
+                                                                }
+                                                               
+                                                                else 
+                                                              { 
+                                                                  System.out.println("Недопустимое значение");
+                                                                  nextStep = true;
+                                                                      }
+
+                                                            }
+
+
+                                                        if (first == 1 && (arg1  == 3 | arg1 ==7)){                        // определяеи 2число и тип РИМ или АРАБ                                {
+                                                             if
+                                                                    (ch[5] == 'I' && ch[6] == 'I' && ch[7] != 'I' && ch[8] == ' ')
+
+                                                            {
+                                                                arg2 = 2;
+                                                                second = 1;
+                                                            }
+
+                                                            else if (ch[5] == 'I' && ch[6] == 'V' )
+
+                                                            {
+                                                                arg2 = 4;
+                                                                second = 1;
+                                                            }
+                                                            else if (ch[5] == 'V' && ch[6] == 'I' )
+
+                                                            {
+                                                                arg2 = 6;
+                                                                second = 1;
+                                                            }
+                                                            
+                                                            else if (ch[5] == 'I' && ch[6] == 'X' )
+
+                                                            {
+                                                                arg2 = 9;
+                                                                second = 1;
+                                                            }
+                                                           
+                                                            else
+                                                            {
+                                                                System.out.println("Недопустимое значение");
+                                                                nextStep = false;
+                                                            }
+                                                            
+                                                        
+                                                           break;
+
+                                                     case 7:  // определяеи 1число и тип РИМ или АРАБ
+                                                                if (ch[1] == 'I' && ch[2] == 'I' && ch[3] != 'I')
+                                                                {
+                                                                arg1 = 2;
+                                                                first = 1;
+                                                                }
+                                                                else if (ch[1] == 'I' && ch[2] == 'I'&& ch[3]== 'I' ) {
+                
+                                                                arg1 = 3;
+                                                                first = 1;
+                                                               }
+                                                                else if(ch[1] == 'I' && ch[2] == 'V') {
+                                                                arg1 = 4;
+                                                                first = 1;
+                                                                 } 
+                                                                
+                                                               else if (ch[1] == 'V' && ch[2] == 'I' && ch[3] != 'I')
+
+                                                                {
+                                                                    arg1 = 6;
+                                                                    first = 1;
+                                                                }
+                                                                else if (ch[1] == 'V' && ch[2] == 'I' && ch[3] == 'I' && ch[4] != 'I')
+              
+                                                                {
+                                                                    arg1 = 7;
+                                                                    first = 1;
+                                                                }
+                                                                 else if (ch[1] == 'V' && ch[2] == 'I' && ch[3] == 'I' && ch[4] == 'I')
+              
+                                                                {
+                                                                    arg1 = 8;
+                                                                    first = 1;
+                                                                }
+                                                                 else if (ch[1] == 'I' && ch[2] == 'X')
+              
+                                                                {
+                                                                    arg1 = 9;
+                                                                    first = 1;
+                                                                }
+                                                                                                                               
+                                                                 else 
+                                                                { 
+                                                                    System.out.println("Недопустимое значение");
+                                                                    nextStep = false;
+                                                                }
+                                                                
+                                                                if ((arg1 == 2 | arg1 == 4 | arg1 == 6 | arg1 == 9) && first == 1){
+                                                                   if (ch[3] == '+') 
+                                                                            {operation=0;}
+                                                                    else if (ch[3] == '-')
+                                                                    {operation=1;}
+                                                                    else if (ch[3] == '*')
+                                                                    {operation=2;}
+                                                                    else if (ch[3] == '/')
+                                                                   {operation=3;}
+                                                                 else {System.out.println("Недопустимая операция");}}
+                                                                
+                                                                  if ((arg1  == 3 | arg1 == 7) && first == 1){
+                                                                  if (ch[4] == '+') 
+                                                                           {operation=0;}
+                                                                   else if (ch[4] == '-')
+                                                                   {operation=1;}
+                                                                   else if (ch[4] == '*')
+                                                                   {operation=2;}
+                                                                   else if (ch[4] == '/')
+                                                                   {operation=3;}
+                                                                   else {System.out.println("Недопустимая операция");}
+                                                                    }
+                                                                    if (arg1  == 8 && first == 1){
+                                                                  if (ch[5] == '+') 
+                                                                           {operation=0;}
+                                                                   else if (ch[5] == '-')
+                                                                   {operation=1;}
+                                                                   else if (ch[5] == '*')
+                                                                   {operation=2;}
+                                                                   else if (ch[5] == '/')
+                                                                   {operation=3;}
+                                                                   else {System.out.println("Недопустимая операция");}
+                                                                    }
+                                
+                                                              if (arg1 == 2  | arg1 == 4 | arg1 == 6 | arg1 == 9 ) {
+
+                                                               if (ch[4] == 'V' && ch[5]== 'I' && ch[6] == 'I' && ch[7] == 'I')// определяеи 2число и тип РИМ или АРАБ
+                                                                {
+                                                                    arg2 = 8;
+                                                                    second = 1;
+                                                                } 
+                                                               
+                                                                else 
+                                                              { 
+                                                                  System.out.println("Недопустимое значение");
+                                                                  nextStep = true;
+                                                                      }
+
+                                                            }
+
+
+                                                        if (first == 1 && (arg1  == 3 | arg1 ==7)){                        // определяеи 2число и тип РИМ или АРАБ                                {
+                                                             if
+                                                                    (ch[5] == 'I' && ch[6] == 'I' && ch[7] != 'I' )
+
+                                                            {
+                                                                arg2 = 3;
+                                                                second = 1;
+                                                            }
+
+                                                            
+                                                            else if (ch[5] == 'V' && ch[6] == 'I' && ch[7] == 'I' )
+
+                                                            {
+                                                                arg2 = 7;
+                                                                second = 1;
+                                                            }
+                                                           
+                                                            else
+                                                            {
+                                                                System.out.println("Недопустимое значение");
+                                                                nextStep = false;
+                                                            }
+                                                         
+                                                               if(ch[1] == 'V' && ch[2] == 'I' && ch[3] == 'I' && ch[4] == 'I')
+
+                                                            {
+                                                                arg1 = 8;
+                                                                first = 1;
+                                                            }
+                                                            
+                                                           
+                                                            if (first == 1 && arg1  == 8){                        // определяеи 2число и тип РИМ или АРАБ                                {
+                                                            if (ch[6] == 'I' && ch[7] == 'I' )
+                                                                {
+                                                                arg1 = 2;
+                                                                first = 1;
+                                                                }
+                                                                
+                                                                else if(ch[6] == 'I' && ch[7] == 'V') {
+                                                                arg1 = 4;
+                                                                first = 1;
+                                                                 } 
+                                                                
+                                                               else if (ch[6] == 'V' && ch[7] == 'I')
+
+                                                                {
+                                                                    arg1 = 6;
+                                                                    first = 1;
+                                                                }
+                                                                
+                                                                
+                                                                 else if (ch[6] == 'I' && ch[7] == 'X')
+              
+                                                                {
+                                                                    arg1 = 9;
+                                                                    first = 1;
+                                                                }
+                                                                                                                               
+                                                                 else 
+                                                                { 
+                                                                    System.out.println("Недопустимое значение");
+                                                                    nextStep = false;
+                                                                }
+                                                        }
+                                                                break;
+                                                    
+                                                           case 8:  
+                                                                if (ch[1] == 'I' && ch[2] == 'I'&& ch[3]== 'I' ) {          // определяеи 1число и тип РИМ или АРАБ
+                
+                                                                arg1 = 3;
+                                                                first = 1;
+                                                               }
+                                                                
+                                                                else if (ch[1] == 'V' && ch[2] == 'I' && ch[3] == 'I' && ch[4] != 'I')
+              
+                                                                {
+                                                                    arg1 = 7;
+                                                                    first = 1;
+                                                                }
+                                                                 else if (ch[1] == 'V' && ch[2] == 'I' && ch[3] == 'I' && ch[4] == 'I')
+              
+                                                                {
+                                                                    arg1 = 8;
+                                                                    first = 1;
+                                                                }
+                                                                                                                          
+                                                                 else 
+                                                                { 
+                                                                    System.out.println("Недопустимое значение");
+                                                                    nextStep = false;
+                                                                }
+                                                                                                              
+                                                                  if ((arg1  == 3 | arg1 == 7) && first == 1){
+                                                                  if (ch[4] == '+') 
+                                                                           {operation=0;}
+                                                                   else if (ch[4] == '-')
+                                                                   {operation=1;}
+                                                                   else if (ch[4] == '*')
+                                                                   {operation=2;}
+                                                                   else if (ch[4] == '/')
+                                                                   {operation=3;}
+                                                                   else {System.out.println("Недопустимая операция");}
+                                                                   }
+                                                           
+                                                                    if (arg1  == 8 && first == 1){
+                                                                  if (ch[5] == '+') 
+                                                                           {operation=0;}
+                                                                   else if (ch[5] == '-')
+                                                                   {operation=1;}
+                                                                   else if (ch[5] == '*')
+                                                                   {operation=2;}
+                                                                   else if (ch[5] == '/')
+                                                                   {operation=3;}
+                                                                   else {System.out.println("Недопустимая операция");}
+                                                                    }
+                                
+
+                                                        if (first == 1 && (arg1  == 3 | arg1 ==7)){                        // определяеи 2число и тип РИМ или АРАБ                                {
+                                                              if (ch[5] == 'V' && ch[6] == 'I' && ch[7] == 'I' && ch[8] == 'I')
+
+                                                            {
+                                                                arg2 = 8;
+                                                                second = 1;
+                                                            }
+                                                           
+                                                            else
+                                                            {
+                                                                System.out.println("Недопустимое значение");
+                                                                nextStep = false;
+                                                            }
+                                                         
+                                                        }
+                                                                break;
+                                                    
+                                                      case 9:  
+                                                                if (ch[1] == 'V' && ch[2] == 'I' && ch[3] == 'I' && ch[4] == 'I')
+              
+                                                                {
+                                                                    arg1 = 8;
+                                                                    first = 1;
+                                                                }
+                                                                                                                                                                                               
+                                                                 else 
+                                                                { 
+                                                                    System.out.println("Недопустимое значение");
+                                                                    nextStep = false;
+                                                                }
+                                                                        
+                                                                    if (arg1  == 8 && first == 1){
+                                                                  if (ch[5] == '+') 
+                                                                           {operation=0;}
+                                                                   else if (ch[5] == '-')
+                                                                   {operation=1;}
+                                                                   else if (ch[5] == '*')
+                                                                   {operation=2;}
+                                                                   else if (ch[5] == '/')
+                                                                   {operation=3;}
+                                                                   else {System.out.println("Недопустимая операция");}
+                                                                    }
+                                
+                                                                                                                            
+                                                                 if (arg1 == 8 && first == 1) {
+                                                                
+                                                                if (ch[6] == 'V' && ch[7]== 'I' && ch[8] == 'I' && ch[9] == 'I'  )// определяеи 2число и тип РИМ или АРАБ
+                                                                {
+                                                                    arg2 = 8;
+                                                                    second = 1;
+                                                                } 
+                                                               
+                                                                else 
+                                                              { 
+                                                                  System.out.println("Недопустимое значение");
+                                                                  nextStep = true;
+                                                                      }
+
+                                                            }
+
+
+                                                        if (first == 1 && (arg1  == 3 | arg1 ==7)){                        // определяеи 2число и тип РИМ или АРАБ                                {
+                                                             if
+                                                                    (ch[5] == 'I' && ch[6] == 'I' && ch[7] != 'I' )
+
+                                                            {
+                                                                arg2 = 3;
+                                                                second = 1;
+                                                            }
+
+                                                            
+                                                            else if (ch[5] == 'V' && ch[6] == 'I' && ch[7] == 'I' )
+
+                                                            {
+                                                                arg2 = 7;
+                                                                second = 1;
+                                                            }
+                                                           
+                                                            else
+                                                            {
+                                                                System.out.println("Недопустимое значение");
+                                                                nextStep = false;
+                                                            }
+                                                            }
+                                                      
+                                                           break;
+
+
+                                                               if(ch[1] == 'V' && ch[2] == 'I' && ch[3] == 'I' && ch[4] == 'I')
+
+                                                            {
+                                                                arg1 = 8;
+                                                                first = 1;
+                                                            }
+                                                            
+                                                           
+                                                            if (first == 1 && arg1  == 8){                        // определяеи 2число и тип РИМ или АРАБ                                {
+                                                            if (ch[6] == 'I' && ch[7] == 'I' )
+                                                                {
+                                                                arg1 = 2;
+                                                                first = 1;
+                                                                }
+                                                                
+                                                                else if(ch[6] == 'I' && ch[7] == 'V') {
+                                                                arg1 = 4;
+                                                                first = 1;
+                                                                 } 
+                                                                
+                                                               else if (ch[6] == 'V' && ch[7] == 'I')
+
+                                                                {
+                                                                    arg1 = 6;
+                                                                    first = 1;
+                                                                }
+                                                                
+                                                                
+                                                                 else if (ch[6] == 'I' && ch[7] == 'X')
+              
+                                                                {
+                                                                    arg1 = 9;
+                                                                    first = 1;
+                                                                }
+                                                                                                                               
+                                                                 else 
+                                                                { 
+                                                                    System.out.println("Недопустимое значение");
+                                                                    nextStep = false;
+                                                                }break;
+                                                           }
+                                                        }
+                                                        }
+                                                        
+        /*                                                
+        else if (ch[6] == 'V' && ch[7] == 'I' && ch[8] == 'I' && ch[9] == 'I' && ch[10] == ' ') 
             
             
         {
             arg2 = 8;
             second = 1;
         }
-        else if (ch6 == 'I' && ch7 == 'X' && ch8 == ' ') 
+        else if (ch[6] == 'I' && ch[7] == 'X' && ch[8] == ' ') 
             
             
         {
             arg2 = 9;
             second = 1;
         }
-        else if (ch6 == 'X' && (ch7 != 'I' | ch7 == ' '))
+        else if (ch[6] == 'X' && (ch[7] != 'I' | ch[7] == ' '))
               
         {
             arg2 = 10;
             second = 1;
         }
-        else if (ch6 == '1' && (ch7 != '0' | ch7 == ' '))
+        else if (ch[6] == '1' && (ch[7] != '0' | ch[7] == ' '))
               
         {
             arg2 = 1;
             second = 2;
         }
-        else if (ch6 == '2' && ch7 == ' ')
+        else if (ch[6] == '2' && ch[7] == ' ')
                  
         {
             arg2 = 2;
             second = 2;
         }
-        else if (ch6 == '3' && ch7 == ' ')
+        else if (ch[6] == '3' && ch[7] == ' ')
              
         {
             arg2 = 3;
             second = 2;
         }
-        else if (ch6 == '4' && ch7 == ' ')
+        else if (ch[6] == '4' && ch[7] == ' ')
                    
         {
             arg2 = 4;
             second = 2;
         }
-        else if (ch6 == '5' && ch7 == ' ')
+        else if (ch[6] == '5' && ch[7] == ' ')
                   
         {
             arg2 = 5;
             second = 2;
         }
-        else if (ch6 == '6' && ch7 == ' ')
+        else if (ch[6] == '6' && ch[7] == ' ')
               
         {
             arg2 = 6;
             second = 2;
         }
-        else if (ch6 == '7' && ch7 == ' ')
+        else if (ch[6] == '7' && ch[7] == ' ')
                
         {
             arg2 = 7;
             second = 2;
         }
-        else if (ch6 == '8' && ch7 == ' ')
+        else if (ch[6] == '8' && ch[7] == ' ')
              
         {
             arg2 = 8;
             second = 2;
         }
-        else if (ch6 == '9' && ch7 == ' ')
+        else if (ch[6] == '9' && ch[7] == ' ')
                
         {
             arg2 = 9;
             second = 2;
         }
-        else if (ch6 == '1' && ch7 == '0' && ch8 == ' ')
+        else if (ch[6] == '1' && ch[7] == '0' && ch[8] == ' ')
                
         {
             arg2 = 10;
@@ -884,68 +1531,68 @@ import java.util.logging.Logger;
       }
 
              else if ((arg1 == 1 | arg1 == 5 | arg1 == 10) && first == 1 ){
-                 if (ch2 == '+') 
+                 if (ch[2] == '+') 
                          {operation=0;}
-                 else if (ch2 == '-')
+                 else if (ch[2] == '-')
                  {operation=1;}
-                 else if (ch2 == '*')
+                 else if (ch[2] == '*')
                  {operation=2;}
-                 else if (ch2 == '/')
+                 else if (ch[2] == '/')
                  {operation=3;}
                else {System.out.println("Недопустимая операция");}}
              if ((arg1 == 2 | arg1 == 4 | arg1 == 6 | arg1 == 9) && first == 1){
-                if (ch3 == '+') 
+                if (ch[3] == '+') 
                          {operation=0;}
-                 else if (ch3 == '-')
+                 else if (ch[3] == '-')
                  {operation=1;}
-                 else if (ch3 == '*')
+                 else if (ch[3] == '*')
                  {operation=2;}
-                 else if (ch3 == '/')
+                 else if (ch[3] == '/')
                 {operation=3;}
              else {System.out.println("Недопустимая операция");}
              if (arg1  == 3 | arg1 == 7 && first == 1){
-              if (ch4 == '+') 
+              if (ch[4] == '+') 
                          {operation=0;}
-                 else if (ch4 == '-')
+                 else if (ch[4] == '-')
                  {operation=1;}
-                 else if (ch4 == '*')
+                 else if (ch[4] == '*')
                  {operation=2;}
-                 else if (ch4 == '/')
+                 else if (ch[4] == '/')
                  {operation=3;}
                  else {System.out.println("Недопустимая операция");}
              if (arg1  == 8 && first == 1){
-              if (ch5 == '+') 
+              if (ch[5] == '+') 
                          {operation=0;}
-                 else if (ch5 == '-')
+                 else if (ch[5] == '-')
                  {operation=1;}
-                 else if (ch5 == '*')
+                 else if (ch[5] == '*')
                  {operation=2;}
-                 else if (ch5 == '/')
+                 else if (ch[5] == '/')
                  {operation=3;}}
                 else {System.out.println("Недопустимая операция");}
               if ((arg1 == 1 | arg1 == 2 | arg1 == 3 | arg1 == 4 | arg1 == 5 | arg1 == 6 | arg1 == 7 | arg1 == 8 | arg1 == 9) && first == 2 ){
-                if (ch2 == '+') 
+                if (ch[2] == '+') 
                          {operation=0;}
-                 else if (ch2 == '-')
+                 else if (ch[2] == '-')
                  {operation=1;}
-                 else if (ch2 == '*')
+                 else if (ch[2] == '*')
                  {operation=2;}
-                 else if (ch2 == '/')
+                 else if (ch[2] == '/')
                  {operation=3;}}
                 else {System.out.println("Недопустимая операция");}
                 if (arg1 == 10 && first == 2 ) {
-                 if (ch2 == '+')
+                 if (ch[2] == '+')
                  {operation=0;}
-                 else if (ch2 == '-')
+                 else if (ch[2] == '-')
                  {operation=1;}
-                 else if (ch2 == '*')
+                 else if (ch[2] == '*')
                  {operation=2;}
-                 else if (ch2 == '/')
+                 else if (ch[2] == '/')
                  {operation=3;}}
                 else {System.out.println("Недопустимая операция");}
         
                }
-}
+}*/
             
             if (first == 2 && second == 2){
             //Operation op;
@@ -954,12 +1601,14 @@ import java.util.logging.Logger;
             }
 
             else  if (first == 1 && second==1 && ( operation!=1 | operation==1 && arg1>arg2 )){         // Переводим результат в римские числа 
-            //Operation op;
+            
+        //Operation op;
                    // op = myOpFactory.getOpInstance(operation);
             int operand;
             operand = myOpFactory.getOpInstance(operation).exec(arg1, arg2);
-            System.out.println(convert.operand);}
-           // else  if (first == 1 && second==1 && operation==1 && arg1>arg2){// Переводим результат в римские числа разность более  0
+         
+            Convert conversion = new Convert();         
+            System.out.println(conversion.intToRome(operand));}// else  if (first == 1 && second==1 && operation==1 && arg1>arg2){// Переводим результат в римские числа разность более  0
             //Operation op;
                     //op = myOpFactory.getOpInstance(operation);
               //  Convert convert= new Convert();
@@ -968,9 +1617,10 @@ import java.util.logging.Logger;
 
             else  if (first == 1 && second==1 && operation==1 && arg1<arg2){// Переводим результат в римские числа разность менее 0
             // Operation op = myOpFactory.getOpInstance(operation);
-                 int operand;
+                int operand;
             operand = myOpFactory.getOpInstance(operation).exec(arg1, arg2);
-            System.out.println(" - " + convert.operand);}
+               Convert conversion = new Convert();    
+            System.out.println(" - " + conversion.intToRome(operand));}
             
              else  if (first == 1 && second==1 && operation==1 && arg1==arg2){// Переводим результат в римские числа разность 0
              System.out.println(" НОЛЬ  ");}// ноль у римлян отсутствовал
@@ -979,9 +1629,9 @@ import java.util.logging.Logger;
             while (nextStep);
      }
 
-   
+            
 
    }
        
 
-    
+                                                    
