@@ -159,8 +159,9 @@ import java.util.logging.Logger;
             Logger.getLogger(Calculator.class.getName()).log(Level.SEVERE, null, ex);
         }
             
-            System.out.println("Введите арифметическую выражение");
+            System.out.println("Введите арифметическoe выражение");
            Scanner in = new Scanner(System.in);  
+            do {
             String s= in.nextLine();
            
             int numberOfChars =s.length();
@@ -181,7 +182,7 @@ import java.util.logging.Logger;
         //char ch[0]0 = s.charAt(9);
          */  
                        
-            do {
+           
                switch (numberOfChars) {
 			case 3:
 				if ((ch[0] == 'I') && (ch[1] != 'I') && (ch[1] != 'V') && (ch[1] != 'X'))// определяеи 1число и тип РИМ или АРАБ
@@ -262,68 +263,68 @@ import java.util.logging.Logger;
                                                                      else if (ch[2] == 'V')
 
                                                                     {
-                                                                        arg1 = 5;
+                                                                        arg2 = 5;
                                                                        second = 1;
                                                                     }
                                                                      else if (ch[2] == 'X')
 
                                                                     {
-                                                                        arg1 = 10;
+                                                                        arg2 = 10;
                                                                        second = 1;
                                                                     } 
                                                                      else if(ch[2] == '1' )
                           
                                                                     {
-                                                                        arg1 = 1;
-                                                                        first = 2;
+                                                                        arg2 = 1;
+                                                                        second = 2;
                                                                     }
                                                                     else if (ch[2] == '2')
 
                                                                     {
-                                                                        arg1 = 2;
-                                                                        first = 2;
+                                                                        arg2 = 2;
+                                                                        second = 2;
                                                                     }
                                                                     else if (ch[2] == '3')
 
                                                                     {
-                                                                        arg1 = 3;
-                                                                        first = 2;
+                                                                        arg2 = 3;
+                                                                        second = 2;
                                                                     }
                                                                     else if (ch[2] == '4')
 
                                                                     {
-                                                                        arg1 = 4;
-                                                                        first = 2;
+                                                                        arg2 = 4;
+                                                                        second = 2;
                                                                     }
                                                                     else if (ch[2] == '5')
 
                                                                      {
-                                                                        arg1 = 5;
-                                                                        first = 2;
+                                                                        arg2 = 5;
+                                                                        second = 2;
                                                                     }
                                                                     else if (ch[2] == '6')
 
                                                                     {
-                                                                        arg1 = 6;
-                                                                        first = 2;
+                                                                        arg2 = 6;
+                                                                        second = 2;
                                                                     }
                                                                     else if (ch[2] == '7')
 
                                                                     {
-                                                                        arg1 = 7;
-                                                                        first = 2;
+                                                                        arg2 = 7;
+                                                                       second = 2;
                                                                     }
                                                                     else if (ch[2] == '8')
 
                                                                     {
-                                                                        arg1 = 8;
-                                                                        first = 2;
+                                                                        arg2 = 8;
+                                                                        second = 2;
                                                                     }
                                                                     else if (ch[2] == '9')
 
                                                                     {
-                                                                        arg1 = 9;
-                                                                        first = 2;
+                                                                        arg2 = 9;
+                                                                        second = 2;
                                                                     }
                                                                      else 
                                                                     { 
@@ -342,7 +343,6 @@ import java.util.logging.Logger;
                                                                    
 				break;
                             
-                            
 			case 4:
 				if ((ch[0] == 'I') && (ch[1] != 'I') && (ch[1] != 'V') && (ch[1] != 'X'))// определяеи 1число и тип РИМ или АРАБ
                                                                 {
@@ -354,11 +354,7 @@ import java.util.logging.Logger;
                                                                 arg1 = 2;
                                                                 first = 1;
                                                                 }
-                                                                 else if (ch[0] == 'I' && ch[1] == 'I'&& ch[2]== 'I' ) {
-                
-                                                                arg1 = 3;
-                                                                first = 1;
-                                                               }
+                                                                 
                                                                 else if(ch[0] == 'I' && ch[1] == 'V') {
                                                                 arg1 = 4;
                                                                 first = 1;
@@ -493,16 +489,7 @@ import java.util.logging.Logger;
                                                                  else if (ch[2] == '/')
                                                                  {operation=3;}}
                                                                 else {System.out.println("Недопустимая операция");}
-                                                                if ((arg1 == 1 | arg1 == 5 | arg1 == 10) && first == 1 ){
-                                                                if (ch[1] == '+') 
-                                                                        {operation=0;}
-                                                                else if (ch[1] == '-')
-                                                                {operation=1;}
-                                                                else if (ch[1] == '*')
-                                                                {operation=2;}
-                                                                else if (ch[1] == '/')
-                                                                {operation=3;}
-                                                              else {System.out.println("Недопустимая операция");}}
+                                                              
                                                               if ((arg1 == 2 | arg1 == 4 | arg1 == 6 | arg1 == 9) && first == 1){
                                                                if (ch[2] == '+') 
                                                                         {operation=0;}
@@ -1219,20 +1206,20 @@ import java.util.logging.Logger;
                                                             if (first == 1 && arg1  == 8){                        // определяеи 2число и тип РИМ или АРАБ                                {
                                                             if (ch[5] == 'I' && ch[6] == 'I' )
                                                                 {
-                                                                arg1 = 2;
+                                                                arg2 = 2;
                                                                 first = 1;
                                                                 }
                                                                 
                                                                 else if(ch[5] == 'I' && ch[6] == 'V') {
-                                                                arg1 = 4;
-                                                                first = 1;
+                                                                arg2 = 4;
+                                                                second = 1;
                                                                  } 
                                                                 
                                                                else if (ch[5] == 'V' && ch[6] == 'I')
 
                                                                 {
-                                                                    arg1 = 6;
-                                                                    first = 1;
+                                                                    arg2 = 6;
+                                                                    second = 1;
                                                                 }
                                                                 
                                                                 
